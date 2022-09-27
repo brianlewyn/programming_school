@@ -16,7 +16,7 @@
 // Salida: del valor ingresado, obtener una serie de numeros
 
 Algoritmo nForSeries
-	Definir num, nDigit, nPower, unit, newNum  Como Entero
+	Definir num, i, j Como Entero
 	
 	Escribir "Programa que muestra una serie de n�meros a partir de un n�mero le�do desde teclado"
 	
@@ -25,16 +25,11 @@ Algoritmo nForSeries
 		Leer num
 	Hasta Que num>=0
 	
-	Para nDigit<-num Hasta 1 Con Paso -1 Hacer
-		nPower<- nDigit
-		
-		Para unit<-1 Hasta nDigit Con Paso 1 Hacer
-			nPower<- nPower - 1
-			newNum<- newNum + unit * 10^nPower
+	Para i<-num Hasta 1 Con Paso -1 Hacer
+		Para j<-1 Hasta i Con Paso 1 Hacer
+			Escribir j Sin Saltar
 		Fin Para
-		
-		Escribir newNum
-		newNum <- 0
+		Escribir ""
 	Fin Para
 FinAlgoritmo
 
