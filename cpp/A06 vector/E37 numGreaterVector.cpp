@@ -18,43 +18,49 @@ using namespace std;
 
 const int n=20;
 void requestEachData(int vector[n]);
-void checkRepeatedData(int i, int vector[n]);
-void getLargetAndItsIndex(int *index, int *largest, int vector[n]);
+void checkRepeatedData(bool *flag, int cont, int i, int vector[n]);
+void getLargestAndItsIndex(int *index, int *largest, int vector[n]);
 
 int main() {
-   int vector[n]={}, index=0, largest=0;
+   int index=0, largest=0, vector[n]={};
 
    cout<<"Programa lee 20 números enteros diferentes, muestra el número mayor y su posición dentro de vector\n";
-
    requestEachData(vector);
-   getLargetAndItsIndex(&index, &largest, vector);
+   getLargestAndItsIndex(&index, &largest, vector);
    cout<<"Mayor <- "<<largest<<"  Index <-"<<index<<"\n\n";
 
    return 0;
 }
 
 void requestEachData(int vector[n]) {
+   int cont=0;
+   bool flag=true;
    for (int i=0; i<n; i++) {
       cout<<"Introduce el dato de la posición ["<<i<<"]: "; cin>>vector[i];
-      checkRepeatedData(i, vector);
+      cont++;
+      while (flag) {
+         flag = false;
+         checkRepeatedData(&flag, cont, i, vector);
+      }
+      flag = true;
    }
 }
 
-void checkRepeatedData(int i, int vector[n]) {
-   for (int j=0; j<i; j++) {
-      if (vector[i] == vector[j]) {
+void checkRepeatedData(bool *flag, int cont, int i, int vector[n]) {
+   for (int j=0; j<cont; j++) {
+      if (vector[i]==vector[j] && i!=j) {
          cout<<"Vuleve a introducir el dato de la posición ["<<i<<"]: "; cin>>vector[i];
-         checkRepeatedData(i, vector);
+         *flag = true;
       }
    }
 }
 
-void getLargetAndItsIndex(int *index, int *largest, int vector[n]) {
+void getLargestAndItsIndex(int *index, int *largest, int vector[n]) {
    *largest = vector[0];
    for (int i=0; i<n; i++) {
       if (vector[i] > *largest) {
-         *index = i;
          *largest = vector[i];
+         *index = i;
       }
    }
 }
