@@ -13,75 +13,82 @@ Salida: mostrar la longitud, la ocurrencias y sustituir las palabras de cuatro l
 #include <iostream>
 using namespace std;
 
-const int n=40;
-int length(char arr[n]);
-int occurrence(char arr[n]);
-void replaceByAsterisk(char arr[n], int x, int y);
-
 int main() {
-   char array[n]={};
+	int size=0, word=0, occurrence=0;
+	char arrChar[40]={};
 
-   cout<<"Programa solicita tres cadenas de caracteres para mostrar su longitud, las ocurrencias y sustituir las palabrasde cuatro letras por asteriscos";
+	cout<<"Programa que solicita tres cadenas de caractes para mostrar su longitud, y también, la ocurrencia de palabras de 4 letras y las sustituye por asteriscos\n\n";
 
-   for (int i=0; i<3; i++) {
-      cout<<"\n\nIntroduce una frase: "; cin.getline(array, n);
-      cout<<"Longitud: "<<length(array);
-      cout<<"\nNúmero de ocurrencias: "<<occurrence(array);
-      cout<<"\nNueva frase: "<<array;
-   }
+	// ArrChar 1
+	cout<<"Ingrese una frase: "; cin.getline(arrChar, 40);
+	for (int i=0; arrChar[i]!='\0'; i++) {
+		size++; word++;
 
-   cout<<endl<<endl;
-   return 0;
-}
+		// Reiniciar en 0, el contador de 4 letras (word)
+		if (arrChar[i]==' '){
+			word=0;
+		}
 
-int length(char arr[n]) {
-   int len=0;
-   for (len; arr[len]!='\0'; len++);
-   return len;
-}
+		// Comprobar que la palabra sea de 4 letras
+		if (word==4 && (arrChar[i+1]==' ' || arrChar[i+1]=='\0')){
+			// Sustituir las palabras de 4 letras por '*'
+			for (int j=i-3; j<=i; j++) {
+				arrChar[j]='*';
+			}
+			occurrence++;
+		}
+	}
+	cout<<"\nLongitud: "<<size;
+	cout<<"\nNúmero de ocurrencias: "<<occurrence;
+	cout<<"\nNueva frase: "<<arrChar;
 
-int occurrence(char arr[n]) {
-   int aux=0, cont=0, len=length(arr)-1;
-   bool flag=true;
+	// ArrChar 2
+	size=0; word=0; occurrence=0; arrChar[40]={};
+	cout<<"\n\nIngrese una frase: "; cin.getline(arrChar, 40);
+	for (int i=0; arrChar[i]!='\0'; i++) {
+		size++; word++;
 
-   for (int i=0; i<=len; i++) {
-      if (arr[i]==' ') {
-         //! A phrase
-         if (flag && i==4) {
-            replaceByAsterisk(arr, i, aux);
-            flag=false;
-            aux = i;
-            cont++;
-         }
-         if ((i-aux) == 5) {
-            replaceByAsterisk(arr, i, aux);
-            aux = i;
-            cont++;
-         } else {
-            aux = i;
-         }
-         if ((len-i) == 4) {
-            replaceByAsterisk(arr, len, i);
-            cont++;
-         }
-      } else {
-         //! A word
-         if ((len+1)==4 && i==3) {
-            replaceByAsterisk(arr, len, 0);
-            cont++;
-         }
-      }
-   }
+		// Reiniciar en 0, el contador de 4 letras (word)
+		if (arrChar[i]==' '){
+			word=0;
+		}
 
-   return cont;
-}
+		// Comprobar que la palabra sea de 4 letras
+		if (word==4 && (arrChar[i+1]==' ' || arrChar[i+1]=='\0')){
+			// Sustituir las palabras de 4 letras por '*'
+			for (int j=i-3; j<=i; j++) {
+				arrChar[j]='*';
+			}
+			occurrence++;
+		}
+	}
+	cout<<"\nLongitud: "<<size;
+	cout<<"\nNúmero de ocurrencias: "<<occurrence;
+	cout<<"\nNueva frase: "<<arrChar;
 
-void replaceByAsterisk(char arr[n], int x, int y) {
-   int len = length(arr)-1;
+	// ArrChar 3
+	size=0; word=0; occurrence=0; arrChar[40]={};
+	cout<<"\n\nIngrese una frase: "; cin.getline(arrChar, 40);
+	for (int i=0; arrChar[i]!='\0'; i++) {
+		size++; word++;
 
-   for (int i=0; i<=len; i++){
-      if ((i<x && y==0)||(x==len && i>y)||(i<x && i>y)) {
-         arr[i] = '*';
-      }
-   }
+		// Reiniciar en 0, el contador de 4 letras (word)
+		if (arrChar[i]==' '){
+			word=0;
+		}
+
+		// Comprobar que la palabra sea de 4 letras
+		if (word==4 && (arrChar[i+1]==' ' || arrChar[i+1]=='\0')){
+			// Sustituir las palabras de 4 letras por '*'
+			for (int j=i-3; j<=i; j++) {
+				arrChar[j]='*';
+			}
+			occurrence++;
+		}
+	}
+	cout<<"\nLongitud: "<<size;
+	cout<<"\nNúmero de ocurrencias: "<<occurrence;
+	cout<<"\nNueva frase: "<<arrChar<<endl<<endl;
+
+	return 0;
 }

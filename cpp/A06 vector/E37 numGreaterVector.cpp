@@ -16,51 +16,42 @@ Salida: el número mayor y su posición dentro del vector
 #include <iostream>
 using namespace std;
 
-const int n=20;
-void requestEachData(int vector[n]);
-void checkRepeatedData(bool *flag, int cont, int i, int vector[n]);
-void getLargestAndItsIndex(int *index, int *largest, int vector[n]);
-
 int main() {
-   int index=0, largest=0, vector[n]={};
-
-   cout<<"Programa lee 20 números enteros diferentes, muestra el número mayor y su posición dentro de vector\n";
-   requestEachData(vector);
-   getLargestAndItsIndex(&index, &largest, vector);
-   cout<<"Mayor <- "<<largest<<"  Index <-"<<index<<"\n\n";
-
-   return 0;
-}
-
-void requestEachData(int vector[n]) {
-   int cont=0;
+   int cont=0, index=0, largest=0, vector[20]={};
    bool flag=true;
-   for (int i=0; i<n; i++) {
+
+   cout<<"Programa que lee 20 números enteros diferentes, muestra el número mayor y su posición dentro de vector\n";
+
+   // Leer números enteros diferentes
+   for (int i=0; i<20; i++) {
       cout<<"Introduce el dato de la posición ["<<i<<"]: "; cin>>vector[i];
       cont++;
+
       while (flag) {
          flag = false;
-         checkRepeatedData(&flag, cont, i, vector);
+
+         // Comprar que el número es en verdad distinto
+         for (int j=0; j<cont; j++) {
+            // Pregunar por un número nuevo si es repetido
+            if (vector[i]==vector[j] && i!=j) {
+               cout<<"Vuleve a introducir el dato de la posición ["<<i<<"]: "; cin>>vector[i];
+               flag = true;
+            }
+         }
       }
       flag = true;
    }
-}
 
-void checkRepeatedData(bool *flag, int cont, int i, int vector[n]) {
-   for (int j=0; j<cont; j++) {
-      if (vector[i]==vector[j] && i!=j) {
-         cout<<"Vuleve a introducir el dato de la posición ["<<i<<"]: "; cin>>vector[i];
-         *flag = true;
+   // Encontrar el número mayour del vetor y su posición
+   largest = vector[0];
+   for (int i=0; i<20; i++) {
+      if (vector[i] > largest) {
+         largest = vector[i];
+         index = i;
       }
    }
-}
 
-void getLargestAndItsIndex(int *index, int *largest, int vector[n]) {
-   *largest = vector[0];
-   for (int i=0; i<n; i++) {
-      if (vector[i] > *largest) {
-         *largest = vector[i];
-         *index = i;
-      }
-   }
+   cout<<"Mayor <- "<<largest<<"  Index <-"<<index<<"\n\n";
+
+   return 0;
 }
