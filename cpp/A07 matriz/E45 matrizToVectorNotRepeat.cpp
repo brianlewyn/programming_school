@@ -20,22 +20,16 @@ using namespace std;
 const int n=4;
 
 int main() {
-   int matriz[n][n]={};
+   int matriz[n][n], vector[n*n], cont=0;
 
    cout<<"Progama que lee desde teclado una matriz de 4x4 y muestra un vector con números sin repetir\n\n";
 
-   // Almacenar los datos leídos en la matriz
+   // Almacenar los datos leídos en la matriz y en el vector
    for (int i=0; i<n; i++) { // rows
       for (int j=0; j<n; j++) { // columns
          cout<<"Introduce el dato de la posición ["<<i<<"]["<<j<<"]: ";
          cin>>matriz[i][j];
-      }
-   }
 
-   // Almacenar en el vector los datos de la matriz
-   int cont=0, vector[n*n]={};
-   for (int i=0; i<n; i++) {
-      for (int j=0; j<n; j++) {
          vector[cont] = matriz[i][j];
          cont++;
       }
@@ -50,9 +44,9 @@ int main() {
    // Buscar los números repetidos en el vector y sólo dejar uno
    int vectorAux[n*n]={}; cont=0;
    bool flag=false;
-   for (int i=0; i<n*n; i++) {
-      for (int j=0; j<n*n; j++) {
-         if (vector[i] == vectorAux[j] && i!=j) {
+   for (int i=0; i<n; i++) {
+      for (int j=0; j<n; j++) {
+         if (vector[i]==vectorAux[j] && i!=j) {
             flag = true;
          }
       }
