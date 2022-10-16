@@ -29,10 +29,10 @@ using namespace std;
 const int n=4;
 
 string sweet[n][n] = {
-   {"KitKat\t\t   ", "Chicles de fresa\t", "Chicle Adams\t\t", "Palotes"}, 
-   {"Kinder Sorpresa\t   ", "Doritos\t\t", "Chetos\t\t\t", "Twix"}, 
-   {"Carlos V\t   ", "M&M\t\t\t", "Papitas\t\t\t", "Chicles de menta"},
-   {"Palomitas\t   ", "Crunch\t\t", "Milkyway\t\t", "KitKat fresa"}
+   {"KitKat","Chicles de fresa","Chicle Adams","Palotes"}, 
+   {"Kinder Sorpresa","Doritos","Chetos","Twix"}, 
+   {"Carlos V","M&M","Papitas","Chicles de menta"},
+   {"Palomitas","Crunch","Milkyway","KitKat fresa"}
 };
 
 float price[n][n] = {
@@ -45,15 +45,120 @@ float price[n][n] = {
 int stock[n][n] = {{3, 3, 3, 3},{3, 3, 3, 3},{3, 3, 3, 3},{3, 3, 3, 3}};
 
 int main() {
+   int cont=0, index, row, col;
+   char answer;
    cout<<"Máquina expendedora de golosinas\n\n";
 
-   // Mostrar las golocinas, su posición y precio;
-   for (int i=0; i<n; i++) {// row
-      for (int j=0; j<n; j++) {// col
-         cout<<sweet[i][j];
+   do {
+      // Mostrar las golocinas, su posición y su precio;
+      cout<<"\t\t\t\tGolosinas\n";
+      for (int i=0; i<n; i++) {
+         for (int j=0; j<n; j++) {
+            cout<<(i+1)<<j<<"."<<sweet[i][j];
+            for (char c : sweet[i][j]) {
+               cont++;
+            }
+            while (cont<=18) {
+               cout<<" ";
+               cont++;
+            }
+            cont=0;
+         }
+         cout<<endl;
+         for (int j=0; j<n; j++) {
+            if (j==0) {
+               cout<<"["<<stock[i][j]<<"] $"<<price[i][j]<<"\t      ";
+            } else if (j==1) {
+               cout<<"["<<stock[i][j]<<"] $"<<price[i][j]<<"\t\t    ";
+            } else if (j==2) {
+               cout<<"["<<stock[i][j]<<"] $"<<price[i][j]<<"\t\t  ";
+            } else {
+               cout<<"["<<stock[i][j]<<"] $"<<price[i][j];
+            }
+         }
+         cout<<endl<<endl;
+      }
+
+      // Preguntar si el usiario quiere seguir comprando
+      cout<<"¿Quieres comprar un dulce? s/n "; 
+      cin>>answer;
+
+      // Vender golosina
+      if (answer=='s') {
+         cout<<"Digite la posición de la golosina: ";
+         cin>>index;
+
+         switch (index) {
+         case 10: row=0; col=0; break;
+         case 11: row=0; col=1; break;
+         case 12: row=0; col=2; break;
+         case 13: row=0; col=3; break;
+         case 20: row=1; col=0; break;
+         case 21: row=1; col=1; break;
+         case 22: row=1; col=2; break;
+         case 23: row=1; col=3; break;
+         case 30: row=2; col=0; break;
+         case 31: row=2; col=1; break;
+         case 32: row=2; col=2; break;
+         case 33: row=2; col=3; break;
+         case 40: row=3; col=0; break;
+         case 41: row=3; col=1; break;
+         case 42: row=3; col=2; break;
+         case 43: row=3; col=3; break;
+         }
+
+
+         if (stock[row][col]!=0) {
+            stock[row][col]--;
+
+            cout<<"El dulce expedido es: \n\t"<<sweet[row][col]<<" con código "<<row<<col;
+            cout<<", con precio de "<<price[row][col]<<" dólares, quedan ";
+            cout<<stock[row][col]<<" en exitencia\n";
+         } else {
+            cout<<"\nYa no hay más golosinas\n";
+         }
+      }
+
+      cout<<endl;
+   } while (answer=='s');
+
+   // Mostrar de nuevo las tres matrices
+   cout<<"Golosinas\n";
+   for (int i=0; i<n; i++) {
+      for (int j=0; j<n; j++) {
+         cout<<"["<<sweet[i][j]<<"]";
+         for (char c : sweet[i][j]) {
+            cont++;
+         }
+         while (cont<=16) {
+            cout<<" ";
+            cont++;
+         }
+         cont=0;
       }
       cout<<endl;
    }
 
+   cout<<"\nPreciso\n";
+   for (int i=0; i<n; i++) {
+      for (int j=0; j<n; j++) {
+         if (price[i][j]==1) {
+            cout<<"["<<price[i][j]<<".0]";
+         } else {
+            cout<<"["<<price[i][j]<<"]";
+         }
+      }
+      cout<<endl;
+   }
+
+   cout<<"\nStock\n";
+   for (int i=0; i<n; i++) {
+      for (int j=0; j<n; j++) {
+         cout<<"["<<stock[i][j]<<"]";
+      }
+      cout<<endl;
+   }
+
+   cout<<endl;
    return 0;
 }
