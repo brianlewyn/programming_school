@@ -69,3 +69,21 @@ int main() {
    cout<<endl<<endl;
    return 0;
 }
+
+/*
+Programa que lee desde teclado las dimensiones de una matriz, luego la muestra con el promedio de cada fila y cada columna
+
+Digite el número de filas: 3    
+Digite el número de columnas: 3
+
+Las dimensiones deben ser distintas, vuelva a intarlo
+Digite el número de filas: 4
+Digite el número de columnas: 3
+
+Matriz
+[39][37][45] 40
+[83][75][86] 81
+[76][28][40] 48
+[19][55][28] 34
+ 54  48  49 
+*/

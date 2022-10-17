@@ -25,7 +25,7 @@ int main() {
 
    cout<<"Programa que lee desde teclado 16 carácters alfabéticos y lo muestra como una matriz, luego muestra de nuevo matriz pero con la primera y última fila ordenada alfabéticamente\n\n";
 
-   // Solicitar los carácteres alfaabéticos
+   // Solicitar los carácteres alfabéticos
    for (int i=0; i<n; i++) {
       for (int j=0; j<n; j++) {
          do {
@@ -37,8 +37,8 @@ int main() {
             cout<<"Ingresa un carácter alfabético: ";
             cin>>abc[i][j];
 
-            lowercase = int(abc[i][j])>=65 && int(abc[i][j])<=90;
-            uppercase = int(abc[i][j])>=97 && int(abc[i][j])<=122;
+            lowercase = abc[i][j]>=65 && abc[i][j]<=90;
+            uppercase = abc[i][j]>=97 && abc[i][j]<=122;
 
             if (!(lowercase || uppercase)) {
                flag = true;
@@ -76,12 +76,12 @@ int main() {
    char temp;
    for (int i=0; i<n; i++) {
       for (int j=0; j<n; j++) {
-         if (int(v1[j]) > int(v1[i])) {
+         if (v1[j] > v1[i]) {
             temp = v1[j];
             v1[j] = v1[i];
             v1[i] = temp;
          }
-         if (int(v2[j]) > int(v2[i])) {
+         if (v2[j] > v2[i]) {
             temp = v2[j];
             v2[j] = v2[i];
             v2[i] = temp;
@@ -115,3 +115,36 @@ int main() {
    cout<<endl;
    return 0;
 }
+
+/*
+Programa que lee desde teclado 16 carácters alfabéticos y lo muestra como una matriz, luego muestra de nuevo matriz pero con la primera y última fila ordenada alfabéticamente
+
+Ingresa un carácter alfabético: a
+Ingresa un carácter alfabético: u
+Ingresa un carácter alfabético: o
+Ingresa un carácter alfabético: e
+Ingresa un carácter alfabético: q
+Ingresa un carácter alfabético: w
+Ingresa un carácter alfabético: r
+Ingresa un carácter alfabético: t
+Ingresa un carácter alfabético: y
+Ingresa un carácter alfabético: p
+Ingresa un carácter alfabético: s
+Ingresa un carácter alfabético: f
+Ingresa un carácter alfabético: g
+Ingresa un carácter alfabético: e
+Ingresa un carácter alfabético: i
+Ingresa un carácter alfabético: a
+
+Matriz ABC
+[a][u][o][e]
+[q][w][r][t]
+[y][p][s][f]
+[g][e][i][a]
+
+Matriz ABC
+[a][e][o][u]
+[q][w][r][t]
+[y][p][s][f]
+[a][e][g][i]
+*/

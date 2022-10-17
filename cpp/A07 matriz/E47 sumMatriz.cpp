@@ -88,3 +88,50 @@ int main() {
    cout<<endl<<endl;
    return 0;
 }
+
+/*
+Programa que pide las dimensiones de dos matrices y lee sus datos desde teclado, luego hace la suma si es que son del mismo tamaño y si lo son, muestra tres matrices.
+
+Digite el número de filas de la matriz A: 3
+Digite el número de columnas de la matriz A: 3
+
+Digite el número de filas de la matriz B: 3
+Digite el número de columnas de la matriz B: 3
+
+Matriz A
+Digite el dato de la posición [0][0]: 1
+Digite el dato de la posición [0][1]: 2 
+Digite el dato de la posición [0][2]: 3
+Digite el dato de la posición [1][0]: 4
+Digite el dato de la posición [1][1]: 5
+Digite el dato de la posición [1][2]: 6
+Digite el dato de la posición [2][0]: 7
+Digite el dato de la posición [2][1]: 8
+Digite el dato de la posición [2][2]: 9
+
+Matriz B
+Digite el dato de la posición [0][0]: 1
+Digite el dato de la posición [0][1]: 2
+Digite el dato de la posición [0][2]: 3
+Digite el dato de la posición [1][0]: 4
+Digite el dato de la posición [1][1]: 5
+Digite el dato de la posición [1][2]: 6
+Digite el dato de la posición [2][0]: 7
+Digite el dato de la posición [2][1]: 8
+Digite el dato de la posición [2][2]: 9
+
+Matriz A
+[1][2][3]
+[4][5][6]
+[7][8][9]
+
+Matriz B
+[1][2][3]
+[4][5][6]
+[7][8][9]
+
+Matriz C
+[2][4][6]
+[8][10][12]
+[14][16][18]
+*/

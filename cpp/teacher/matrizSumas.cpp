@@ -59,9 +59,9 @@ int main() {
    // sumando y mostrando la suma de cada fila
    cout<<"\nSuma de las columnas: \n";
    int sumaC=0;
-   for (int i=0; i<cols; i++) {
-      for (int j=0; j<rows; j++) {
-         sumaC += matriz[i][j];
+   for (int i=0; i<rows; i++) {
+      for (int j=0; j<cols; j++) {
+         sumaC += matriz[j][i];
       }
       cout<<" "<<sumaC<<" ";
       sumaC=0;

@@ -19,8 +19,8 @@ con código 03, con precio de 1.5 dólares, quedan 2 en existencia”.
 
 Una vez que ya no quiera comprar más dulces deberás mostrar las 3 matrices.
 
-Entrada: 
-Salida:
+Entrada: Si quires comprar un dulce, y decir la posición del dulce
+Salida: mostrar las matrices de dulces, posición y stock
 */
 
 #include <iostream>
@@ -115,7 +115,7 @@ int main() {
             cout<<", con precio de "<<price[row][col]<<" dólares, quedan ";
             cout<<stock[row][col]<<" en exitencia\n";
          } else {
-            cout<<"\nYa no hay más golosinas\n";
+            cout<<"\n\tYa no hay más golosinas\n";
          }
       }
 
@@ -162,3 +162,130 @@ int main() {
    cout<<endl;
    return 0;
 }
+
+/*
+Máquina expendedora de golosinas
+
+                                Golosinas
+10.KitKat             11.Chicles de fresa   12.Chicle Adams       13.Palotes            
+[3] $1.1              [3] $0.8              [3] $1.5              [3] $0.9
+
+20.Kinder Sorpresa    21.Doritos            22.Chetos             23.Twix               
+[3] $1.8              [3] $1                [3] $1.2              [3] $1
+
+30.Carlos V           31.M&M                32.Papitas            33.Chicles de menta   
+[3] $1.8              [3] $1.3              [3] $1.2              [3] $0.8
+
+40.Palomitas          41.Crunch             42.Milkyway           43.KitKat fresa       
+[3] $1.5              [3] $1.1              [3] $1.1              [3] $1.1
+
+¿Quieres comprar un dulce? s/n s  
+Digite la posición de la golosina: 43
+El dulce expedido es: 
+        KitKat fresa con código 33, con precio de 1.1 dólares, quedan 2 en exitencia
+
+                                Golosinas
+10.KitKat             11.Chicles de fresa   12.Chicle Adams       13.Palotes            
+[3] $1.1              [3] $0.8              [3] $1.5              [3] $0.9
+
+20.Kinder Sorpresa    21.Doritos            22.Chetos             23.Twix               
+[3] $1.8              [3] $1                [3] $1.2              [3] $1
+
+30.Carlos V           31.M&M                32.Papitas            33.Chicles de menta   
+[3] $1.8              [3] $1.3              [3] $1.2              [3] $0.8
+
+40.Palomitas          41.Crunch             42.Milkyway           43.KitKat fresa       
+[3] $1.5              [3] $1.1              [3] $1.1              [2] $1.1
+
+¿Quieres comprar un dulce? s/n s
+Digite la posición de la golosina: 43
+El dulce expedido es: 
+        KitKat fresa con código 33, con precio de 1.1 dólares, quedan 1 en exitencia
+
+                                Golosinas
+10.KitKat             11.Chicles de fresa   12.Chicle Adams       13.Palotes            
+[3] $1.1              [3] $0.8              [3] $1.5              [3] $0.9
+
+20.Kinder Sorpresa    21.Doritos            22.Chetos             23.Twix               
+[3] $1.8              [3] $1                [3] $1.2              [3] $1
+
+30.Carlos V           31.M&M                32.Papitas            33.Chicles de menta   
+[3] $1.8              [3] $1.3              [3] $1.2              [3] $0.8
+
+40.Palomitas          41.Crunch             42.Milkyway           43.KitKat fresa       
+[3] $1.5              [3] $1.1              [3] $1.1              [1] $1.1
+
+¿Quieres comprar un dulce? s/n s
+Digite la posición de la golosina: 43
+El dulce expedido es: 
+        KitKat fresa con código 33, con precio de 1.1 dólares, quedan 0 en exitencia
+
+                                Golosinas
+10.KitKat             11.Chicles de fresa   12.Chicle Adams       13.Palotes            
+[3] $1.1              [3] $0.8              [3] $1.5              [3] $0.9
+
+20.Kinder Sorpresa    21.Doritos            22.Chetos             23.Twix               
+[3] $1.8              [3] $1                [3] $1.2              [3] $1
+
+30.Carlos V           31.M&M                32.Papitas            33.Chicles de menta   
+[3] $1.8              [3] $1.3              [3] $1.2              [3] $0.8
+
+40.Palomitas          41.Crunch             42.Milkyway           43.KitKat fresa       
+[3] $1.5              [3] $1.1              [3] $1.1              [0] $1.1
+
+¿Quieres comprar un dulce? s/n s
+Digite la posición de la golosina: 43
+
+   Ya no hay más golosinas
+
+                                Golosinas
+10.KitKat             11.Chicles de fresa   12.Chicle Adams       13.Palotes            
+[3] $1.1              [3] $0.8              [3] $1.5              [3] $0.9
+
+20.Kinder Sorpresa    21.Doritos            22.Chetos             23.Twix               
+[3] $1.8              [3] $1                [3] $1.2              [3] $1
+
+30.Carlos V           31.M&M                32.Papitas            33.Chicles de menta   
+[3] $1.8              [3] $1.3              [3] $1.2              [3] $0.8
+
+40.Palomitas          41.Crunch             42.Milkyway           43.KitKat fresa       
+[3] $1.5              [3] $1.1              [3] $1.1              [0] $1.1
+
+¿Quieres comprar un dulce? s/n s
+Digite la posición de la golosina: 10
+El dulce expedido es: 
+        KitKat con código 00, con precio de 1.1 dólares, quedan 2 en exitencia
+
+                                Golosinas
+10.KitKat             11.Chicles de fresa   12.Chicle Adams       13.Palotes            
+[2] $1.1              [3] $0.8              [3] $1.5              [3] $0.9
+
+20.Kinder Sorpresa    21.Doritos            22.Chetos             23.Twix               
+[3] $1.8              [3] $1                [3] $1.2              [3] $1
+
+30.Carlos V           31.M&M                32.Papitas            33.Chicles de menta   
+[3] $1.8              [3] $1.3              [3] $1.2              [3] $0.8
+
+40.Palomitas          41.Crunch             42.Milkyway           43.KitKat fresa       
+[3] $1.5              [3] $1.1              [3] $1.1              [0] $1.1
+
+¿Quieres comprar un dulce? s/n n
+
+Golosinas
+[KitKat]           [Chicles de fresa] [Chicle Adams]     [Palotes]          
+[Kinder Sorpresa]  [Doritos]          [Chetos]           [Twix]             
+[Carlos V]         [M&M]              [Papitas]          [Chicles de menta] 
+[Palomitas]        [Crunch]           [Milkyway]         [KitKat fresa]     
+
+Preciso
+[1.1][0.8][1.5][0.9]
+[1.8][1.0][1.2][1.0]
+[1.8][1.3][1.2][0.8]
+[1.5][1.1][1.1][1.1]
+
+Stock
+[2][3][3][3]
+[3][3][3][3]
+[3][3][3][3]
+[3][3][3][0]
+*/
