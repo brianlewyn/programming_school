@@ -55,9 +55,9 @@ int main() {
       for (int i=0; i<n; i++) {
          for (int j=0; j<n; j++) {
             cout<<(i+1)<<j<<"."<<sweet[i][j];
-            for (char c : sweet[i][j]) {
-               cont++;
-            }
+
+            // Agregar espacios si es necesario
+            cont = sweet[i][j].length();
             while (cont<=18) {
                cout<<" ";
                cont++;
@@ -107,7 +107,6 @@ int main() {
          case 43: row=3; col=3; break;
          }
 
-
          if (stock[row][col]!=0) {
             stock[row][col]--;
 
@@ -127,9 +126,9 @@ int main() {
    for (int i=0; i<n; i++) {
       for (int j=0; j<n; j++) {
          cout<<"["<<sweet[i][j]<<"]";
-         for (char c : sweet[i][j]) {
-            cont++;
-         }
+
+         // Agregar espacios si es necesario
+         cont = sweet[i][j].length();
          while (cont<=16) {
             cout<<" ";
             cont++;

@@ -85,7 +85,32 @@ Programa que guarda números pares en una matriz e impares en otra
 Digite un número: 2
 Digite un número: 4
 Digite un número: 6
-Digite un número: 8
+// funciones1.cpp hecho por: Verónica Orozco
+#include&lt;iostream&gt;
+using namespace std;
+int main (){
+int i=1;
+cout &lt;&lt; &quot; Ejemplo 1 &quot;;
+while (i&lt;=20){
+cout&lt;&lt;&quot;-&quot;;
+i++;
+}
+cout&lt;&lt;endl&lt;&lt;endl;
+i=1;
+cout &lt;&lt; &quot; Ejemplo 2 &quot;;
+while (i&lt;=20){
+cout&lt;&lt;&quot;-&quot;;
+i++;
+}
+cout&lt;&lt;endl&lt;&lt;endl;
+i=1;
+cout &lt;&lt; &quot; Ejemplo 3 &quot;;
+while (i&lt;=20){
+cout&lt;&lt;&quot;-&quot;;
+i++;
+}
+return 0;
+}Digite un número: 8
 Digite un número: 10
 Digite un número: 11
 Digite un número: 12
