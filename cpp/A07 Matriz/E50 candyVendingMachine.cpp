@@ -47,6 +47,7 @@ int stock[n][n] = {{3, 3, 3, 3},{3, 3, 3, 3},{3, 3, 3, 3},{3, 3, 3, 3}};
 int main() {
    int cont=0, index, row, col;
    char answer;
+   string nameProduct="";
    cout<<"Máquina expendedora de golosinas\n\n";
 
    do {
@@ -57,11 +58,13 @@ int main() {
             cout<<(i+1)<<j<<"."<<sweet[i][j];
 
             // Agregar espacios si es necesario
-            cont = sweet[i][j].length();
+            nameProduct = sweet[i][j];
+            for (cont; nameProduct[cont] != '\0'; cont++);
             while (cont<=18) {
                cout<<" ";
                cont++;
             }
+            nameProduct="";
             cont=0;
          }
          cout<<endl;
@@ -128,11 +131,13 @@ int main() {
          cout<<"["<<sweet[i][j]<<"]";
 
          // Agregar espacios si es necesario
-         cont = sweet[i][j].length();
+         nameProduct = sweet[i][j];
+         for (cont; nameProduct[cont] != '\0'; cont++);
          while (cont<=16) {
             cout<<" ";
             cont++;
          }
+         nameProduct="";
          cont=0;
       }
       cout<<endl;
