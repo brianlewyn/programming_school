@@ -27,7 +27,7 @@ int main() {
       cout<<endl;
    }
 
-   // mostarando la digonal principal:
+   // mostarando la digonal principal (row, col):
    cout<<"\n\nMostrando los elementos de la diagonal principal: \n";
    for (int i=0; i<3; i++) { // posicionar filas
       for (int j=0; j<3; j++) { // posicionar columnas

@@ -18,17 +18,17 @@ using namespace std;
 
 int main() {
    int n=0, m=0;
-   bool flag=false;
+   bool flag=true;
 
    cout<<"Programa que crea dos matrices y la muestra con números aleatorios, luego muestra un vector con todo los números que están en A pero no están en B\n\n";
 
    // Solicitar el tamaño de las matrices, y comprobar que n!=m
    do {
-      if (flag)
+      if (!flag)
          cout<<"\nEl número de filas y columnas debe ser distinto\n";
       cout<<"Digite el número de filas: "; cin>>n;
       cout<<"Digite el número de columnas: "; cin>>m;
-      flag=true;
+      flag=false;
    } while (n==m);
 
    // Crear la matriz A y B
@@ -65,7 +65,7 @@ int main() {
 
    // Guardar en un vector C, todos los números que están en A pero no están en B
    int contC=0, contD=0, VectorC[n*m]={}, VectorD[n*m]={};
-   flag = false;
+   flag = true;
 
    // MatrizA[i][j]
    for (int i=0; i<n; i++) {
@@ -75,18 +75,18 @@ int main() {
          for (int x=0; x<n; x++) {
             for (int y=0; y<m; y++) {
                if (MatrizA[i][j] == MatrizB[x][y])
-                  flag=true;
+                  flag=false;
             }
          }
 
          // Guardar en el Vector C los números no coincidentes de la matriz A con B
          if (flag) {
-            VectorD[contD] = MatrizA[i][j];
-            flag=false;
-            contD++;
-         } else {
             VectorC[contC] = MatrizA[i][j];
             contC++;
+         } else {
+            VectorD[contD] = MatrizA[i][j];
+            flag=true;
+            contD++;
          }
       }
    }

@@ -17,7 +17,7 @@ Salida: el número mayor y su posición dentro del vector
 using namespace std;
 
 int main() {
-   int cont=0, index=0, largest=0, vector[20]={};
+   int index=0, largest=0, vector[20]={};
    bool flag=true;
 
    cout<<"Programa que lee 20 números enteros diferentes, muestra el número mayor y su posición dentro de vector\n";
@@ -25,14 +25,13 @@ int main() {
    // Leer números enteros diferentes
    for (int i=0; i<20; i++) {
       cout<<"Introduce el dato de la posición ["<<i<<"]: "; cin>>vector[i];
-      cont++;
 
       while (flag) {
          flag = false;
 
          // Comprar que el número es en verdad distinto
-         for (int j=0; j<cont; j++) {
-            // Pregunar por un número nuevo si es repetido
+         for (int j=0; j<=i; j++) {
+            // Preguntar por un número nuevo si es repetido
             if (vector[i]==vector[j] && i!=j) {
                cout<<"Vuleve a introducir el dato de la posición ["<<i<<"]: "; cin>>vector[i];
                flag = true;

@@ -43,20 +43,26 @@ int main() {
 
    // Buscar los números repetidos en el vector y sólo dejar uno
    int vectorAux[n*n]={}; cont=0;
-   bool flag=false;
+   bool flag=true, flag2=true;
    for (int i=0; i<n; i++) {
       for (int j=0; j<n; j++) {
          if (vector[i]==vectorAux[j] && i!=j) {
-            flag = true;
+            flag = false;
          }
       }
 
       // Almacenar los datos no repetidos
       if (flag) {
-         flag=false;
-      } else {
          vectorAux[cont] = vector[i];
          cont++;
+      } else {
+         if (flag2) {
+            vectorAux[cont] = vector[i];
+            cont++;
+            flag2 = false;
+         }
+         flag=true;
+         flag2=true;
       }
    }
 

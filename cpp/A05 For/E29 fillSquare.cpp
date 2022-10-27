@@ -17,14 +17,13 @@ int main() {
 	cout<<"Programa que imprime el area de un cuadrado en forma de astericos a partir de un número ledo desde teclado\n";
 
 	do {
-		cout<<"Introduce un lado entre 1 y 20: ";
-		cin>>l;
-   } while (l<=0 || l>20); // Para que también tome en cuenta 1
+		cout<<"Introduce un lado entre 1 y 20: "; cin>>l;
+	} while (!(l>=1 && l<=20));
 
 	for (int i=1; i<=l; i++) {
 		for (int j=1; j<=l; j++) {
 			cout<<"*";
-      }
+		}
 		cout<<endl;
 	}
 

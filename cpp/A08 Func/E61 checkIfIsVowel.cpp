@@ -1,6 +1,6 @@
 /* Brayan Mejía Mora
 
-   Escribe un programa en C++ que lea un carácter desde teclado y desde el programa principal. Deberá llamar a una función, que recibirá como parámetro el caracter y ésta devuelva un 1 si es una vocal MAYÚSCULA, un 2 si es una vocal minúscula o 3 un mensaje de error si es otro caracter.
+Escribe un programa en C++ que lea un carácter desde teclado y desde el programa principal. Deberá llamar a una función, que recibirá como parámetro el caracter y ésta devuelva un 1 si es una vocal MAYÚSCULA, un 2 si es una vocal minúscula o 3 un mensaje de error si es otro caracter.
    • Debes llamar una función que recibirá como parámetro el carácter leído y devolverá 1, 2 o 3.
    • Desde el programa principal desplegarás “ES MAYÚSCULA” si el resultado es 1, “es minúscula” si el resultado es 2, ó “Error!!!” si el resultado es 3.
    • Poner en la prueba de escriotio los 3 casos (cuando es 1, si es 2 y cuando es 3)

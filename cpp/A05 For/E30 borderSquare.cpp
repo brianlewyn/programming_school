@@ -19,8 +19,7 @@ int main() {
 
 	do {
 		cout<<"Introduce un lado entre 1 y 20: "; cin>>l;
-   }
-	while (l<=0 || l>20); // Para que también tome en cuenta 1
+   } while (!(l>=1 && l<=20)); // Para que también tome en cuenta 1
 
 	for (int i=1; i<=l; i++) {
 		for (int j=1; j<=l; j++) {
