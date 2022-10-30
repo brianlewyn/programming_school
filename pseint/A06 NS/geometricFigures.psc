@@ -1,35 +1,31 @@
 Algoritmo geometricFigures
 	Definir answer Como Entero
 	Definir b, l, h, r, a, n, perimeter, area Como Real
-	Escribir "Programa calcula el área y perímetro de figuras geométricas regulares"
+	Escribir "Programa que calcula el área y perímetro de figuras geométricas regulares"
 	
 	Repetir
 		Escribir ""
 		Escribir "MENU: "
 		Escribir "1. Círculo"
-		Escribir "2. Triangulo Equilatero"
+		Escribir "2. Triángulo Equilatero"
 		Escribir "3. Rectángulo"
 		Escribir "4. Cuadrado"
-		Escribir "5. Figuras regulares con mas de 5 lados"
+		Escribir "5. Figuras regulares con más de 5 lados"
 		Escribir "6. Salir"
 		Escribir ""
 		
 		Escribir "Digite el número de opción: "
 		Leer answer
 		
-		Si answer > 0 y answer <= 6 Entonces
+		Si answer > 0 y answer < 6 Entonces
 			Segun answer Hacer
 				1:
 					Escribir "# Círculo"
 					Escribir "Digite el valor del radio: "
-					Leer ratio
+					Leer r
 					
 					perimeter <- 2 * 3.1416 * r
 					area <- 3.1416 * r * r
-					
-					Escribir ""
-					Escribir "El área es: ", area
-					Escribir "El perímetro es: ", perimeter
 				2:
 					Escribir "# Triángulo Equilatero"
 					Escribir "Digite el valor de la base: "
@@ -39,10 +35,6 @@ Algoritmo geometricFigures
 					
 					perimeter <- 3 * b
 					area <- b * h / 2
-					
-					Escribir ""
-					Escribir "El área es: ", area
-					Escribir "El perímetro es: ", perimeter
 				3:
 					Escribir "# Rectángulo"
 					Escribir "Digite el valor de la base: "
@@ -52,10 +44,6 @@ Algoritmo geometricFigures
 					
 					perimeter <- 2 * b + 2 * h
 					area <- b * h
-					
-					Escribir ""
-					Escribir "El área es: ", area
-					Escribir "El perímetro es: ", perimeter
 				4:
 					Escribir "# Cuadrado"
 					Escribir "Digite el valor de uno de los lados: "
@@ -63,12 +51,8 @@ Algoritmo geometricFigures
 					
 					perimeter <- 4 * l
 					area <- l * l
-					
-					Escribir ""
-					Escribir "El área es: ", area
-					Escribir "El perímetro es: ", perimeter
-				5:
-					Escribir "# Figuras regulares con mas de 5 lados"
+				De Otro Modo:
+					Escribir "# Figuras regulares con más de 5 lados"
 					Escribir "Digite el número de lados: "
 					Leer n
 					Escribir "Digite el valor del apotema: "
@@ -78,17 +62,15 @@ Algoritmo geometricFigures
 					
 					perimeter <- n * l
 					area <- perimeter * a / 2
-					
-					Escribir ""
-					Escribir "El área es: ", area
-					Escribir "El perímetro es: ", perimeter
-				De Otro Modo:
-					Escribir "Saliendo del programa"
 			Fin Segun
+			
+			Escribir ""
+			Escribir "El área es: ", area
+			Escribir "El perímetro es: ", perimeter
 		FinSi
 		
 		Si answer < 0 o answer > 6 Entonces
-			Escribir "El valor esta fuera del rango, vuelva a intentarlo"
+			Escribir "El valor está fuera del rango, vuelva a intentarlo"
 		FinSi
 	Hasta Que answer = 6
 FinAlgoritmo
