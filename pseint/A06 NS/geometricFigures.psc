@@ -1,33 +1,33 @@
 Algoritmo geometricFigures
 	Definir answer Como Entero
 	Definir b, l, h, r, a, n, perimeter, area Como Real
-	Escribir "Programa que calcula el área y perímetro de figuras geométricas regulares"
+	Escribir "Programa que calcula el ï¿½rea y perï¿½metro de figuras geomï¿½tricas regulares"
 	
 	Repetir
 		Escribir ""
 		Escribir "MENU: "
-		Escribir "1. Círculo"
-		Escribir "2. Triángulo Equilatero"
-		Escribir "3. Rectángulo"
+		Escribir "1. Cï¿½rculo"
+		Escribir "2. Triï¿½ngulo Equilatero"
+		Escribir "3. Rectï¿½ngulo"
 		Escribir "4. Cuadrado"
-		Escribir "5. Figuras regulares con más de 5 lados"
+		Escribir "5. Figuras regulares con mï¿½s de 5 lados"
 		Escribir "6. Salir"
 		Escribir ""
 		
-		Escribir "Digite el número de opción: "
+		Escribir "Digite el nï¿½mero de opciï¿½n: "
 		Leer answer
 		
 		Si answer > 0 y answer < 6 Entonces
 			Segun answer Hacer
 				1:
-					Escribir "# Círculo"
+					Escribir "# Cï¿½rculo"
 					Escribir "Digite el valor del radio: "
 					Leer r
 					
 					perimeter <- 2 * 3.1416 * r
 					area <- 3.1416 * r * r
 				2:
-					Escribir "# Triángulo Equilatero"
+					Escribir "# Triï¿½ngulo Equilatero"
 					Escribir "Digite el valor de la base: "
 					Leer b
 					Escribir "Digite el valor de la altura: "
@@ -36,7 +36,7 @@ Algoritmo geometricFigures
 					perimeter <- 3 * b
 					area <- b * h / 2
 				3:
-					Escribir "# Rectángulo"
+					Escribir "# Rectï¿½ngulo"
 					Escribir "Digite el valor de la base: "
 					Leer b
 					Escribir "Digite el valor de la altura: "
@@ -52,8 +52,8 @@ Algoritmo geometricFigures
 					perimeter <- 4 * l
 					area <- l * l
 				De Otro Modo:
-					Escribir "# Figuras regulares con más de 5 lados"
-					Escribir "Digite el número de lados: "
+					Escribir "# Figuras regulares con mï¿½s de 5 lados"
+					Escribir "Digite el nï¿½mero de lados: "
 					Leer n
 					Escribir "Digite el valor del apotema: "
 					Leer a
@@ -65,12 +65,12 @@ Algoritmo geometricFigures
 			Fin Segun
 			
 			Escribir ""
-			Escribir "El área es: ", area
-			Escribir "El perímetro es: ", perimeter
+			Escribir "El ï¿½rea es: ", area
+			Escribir "El perï¿½metro es: ", perimeter
 		FinSi
 		
 		Si answer < 0 o answer > 6 Entonces
-			Escribir "El valor está fuera del rango, vuelva a intentarlo"
+			Escribir "El valor estï¿½ fuera del rango, vuelva a intentarlo"
 		FinSi
-	Hasta Que answer = 6
+	Hasta Que (answer = 6)
 FinAlgoritmo
