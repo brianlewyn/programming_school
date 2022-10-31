@@ -5,7 +5,9 @@ int main() {
 	int num, answer;
 	bool flag=true;
 
-	cout<<"Programa que lee un número y te pide los valores de su tabla de múltiplicar del 1 al 10. Nota: Si introduces un valor incorrecto, te volverá a pregunar hasta que esté correcto\n\n";
+	cout<<"Programa que lee un número y te pide los valores de su tabla de\n";
+	cout<<"múltiplicar del 1 al 10. Nota: Si introduces un valor incorrecto,\n";
+	cout<<"te volverá a pregunar hasta que esté correcto\n\n";
 
 	cout<<"Ingresa un número: ";
 	cin>>num;

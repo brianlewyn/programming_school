@@ -5,10 +5,11 @@ int main() {
    int answer;
    float b, l, h, r, a, n, perimeter, area;
 
-   cout<<"Programa que calcula el área y perímetro de figuras geométricas regulares\n\n";
+   cout<<"Programa que calcula el área y perímetro\n"; 
+   cout<<"de figuras geométricas regulares";
 
    do {
-      cout<<"\nMENU: ";
+      cout<<"\n\nMENU: ";
       cout<<"\n1. Círculo";
       cout<<"\n2. Triángulo Equilatero";
       cout<<"\n3. Rectángulo";
@@ -71,8 +72,8 @@ int main() {
             break;
          }
 
-         cout<<"\nEl área es: ", area;
-         cout<<"\nEl perímetro es: ", perimeter;
+         cout<<"\nEl área es: "<<area;
+         cout<<"\nEl perímetro es: "<<perimeter;
       }
       
       if (answer<0 || answer>6) 
