@@ -1,13 +1,14 @@
 // By Brayan Mejía Mora
 
 #include <iostream>
+#include <stdlib.h>
 #include "Funcs&Methods.h"
 using namespace std;
 
 int main() {
    Country countries[SIZE]={};
    int digitMenu, digitSubMenu, len, index, lenVIndex, setIndex[SIZE]={};
-   char answear;
+   char answear, intro;
    string temp;
 
    // Instantiating some countries
@@ -20,6 +21,7 @@ int main() {
    countries[1] = Cuba;
    countries[2] = Japan;
    sortCountryByAlphabet(countries);
+   system("clear");
 
    do {
       // Main menu
@@ -35,6 +37,7 @@ int main() {
 
       cout<<"\nDigite el número de opción: ";
       cin>>digitMenu;
+      system("clear");
 
       // Check how many countries are there?
       len = lenV(countries);
@@ -49,6 +52,7 @@ int main() {
                countries[len].getCountryData(temp);
                sortCountryByAlphabet(countries);
             } else {
+               system("clear");
                cout<<"\n[!] El nombre ingresado ya está includo en el registro\n";
             }
          } else {
@@ -103,8 +107,10 @@ int main() {
                   }
 
                   if (!(digitSubMenu>0 && digitSubMenu<=6))
-                     cout<<"\n[!] Número fuera del rango, vuelva a intentarlo";
+                     cout<<"[!] Número fuera del rango, vuelva a intentarlo\n";
                } while (!(digitSubMenu==6));
+               system("clear");
+
             } else {
                cout<<"[!] El nombre ingresado, no está en el registro\n";
             }
@@ -120,9 +126,9 @@ int main() {
                index = getIndexCountryIsInV(countries, temp, len);
                countries[index].resetData();
                removeCountryIsInV(countries, len);
-               cout<<"País eliminado del registro";
+               cout<<"País eliminado del registro\n";
             } else {
-               cout<<"[!] El nombre ingresado, no está en el registro";
+               cout<<"[!] El nombre ingresado, no está en el registro\n";
             }
          }
 
@@ -136,7 +142,7 @@ int main() {
                index = getIndexCountryIsInV(countries, temp, len);
                countries[index].showCountryData();
             } else {
-               cout<<"[!] El nombre ingresado, no está en el registro";
+               cout<<"[!] El nombre ingresado, no está en el registro\n";
             }
          }
 
@@ -191,8 +197,10 @@ int main() {
          cout<<"\n[!] No hay registros\n";
       }
 
-      if (digitMenu<0 || digitMenu>8)
+      if (digitMenu<0 || digitMenu>8) {
+         system("clear");
          cout<<"[!] Número fuera del rango, vuelva a intentarlo\n";
+      }
    } while (!(digitMenu==8));
 
 
