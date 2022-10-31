@@ -1,5 +1,4 @@
 // By Brayan Mejía Mora
-
 #include <iostream>
 #include <stdlib.h>
 #include "Funcs&Methods.h"
@@ -8,7 +7,7 @@ using namespace std;
 int main() {
    Country countries[SIZE]={};
    int digitMenu, digitSubMenu, len, index, lenVIndex, setIndex[SIZE]={};
-   char answear, intro;
+   char answear;
    string temp;
 
    // Instantiating some countries
