@@ -73,8 +73,9 @@ int main() {
                index = getIndexCountryIsInV(countries, temp, len);
 
                do {
+                  system("clear");
                   // Secondary menu
-                  cout<<"\nSubMenú ["<<temp<<"]:\n";
+                  cout<<"SubMenú ["<<temp<<"]:\n";
                   cout<<"1. Capital\n";
                   cout<<"2. Continente\n";
                   cout<<"3. Idioma\n";
@@ -89,18 +90,23 @@ int main() {
                      switch (digitSubMenu){
                      case 1:
                         countries[index].setCapital();
+                        cout<<"Se ha modificado la capital\n";
                         break;
                      case 2:
                         countries[index].setContinent();
+                        cout<<"Se ha modificado el continente\n";
                         break;
                      case 3:
                         countries[index].setLanguage();
+                        cout<<"Se ha modificado el idioma\n";
                         break;
                      case 4:
                         countries[index].setPopulation();
+                        cout<<"Se ha modificado la población\n";
                         break;
                      default:
                         countries[index].setCurrency();
+                        cout<<"Se ha modificado la moneda\n";
                         break;
                      }
                   }
