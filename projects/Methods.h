@@ -3,11 +3,15 @@
 // another methods
 void Country::getCountryData(string nameCountry) {
    name = nameCountry;
-   cout<<"Capital: "; cin>>capital;
-   cout<<"Continente: "; cin>>continent;
-   cout<<"Idioma: "; cin>>language;
+   cout<<"Capital: ";
+   cin.ignore(); getline(cin, capital);
+   cout<<"Continente: ";
+   cin.ignore(); getline(cin, continent);
+   cout<<"Idioma: ";
+   cin.ignore(); getline(cin, language);
    cout<<"Población: "; cin>>population;
    cout<<"Moneda: "; cin>>currency;
+   cin.ignore(); getline(cin, currency);
 }
 
 void Country::showCountryData() {
@@ -31,23 +35,23 @@ void Country::resetData() {
 // set methods
 void Country::setCapital() {
    cout<<"Ingrese el nuevo nombre de la capital: ";
-   cin>>capital;
+   cin.ignore(); getline(cin, capital);
 }
 void Country::setContinent() {
    cout<<"Ingrese el nuevo nombre del continente: ";
-   cin>>continent;
+   cin.ignore(); getline(cin, continent);
 }
 void Country::setLanguage() {
    cout<<"Ingrese el nuevo nombre del idioma: ";
-   cin>>language;
-}
-void Country::setCurrency() {
-   cout<<"Ingrese el nuevo tipo de moneda: ";
-   cin>>currency;
+   cin.ignore(); getline(cin, language);
 }
 void Country::setPopulation() {
    cout<<"Ingrese el nuevo total de la población: ";
    cin>>population;
+}
+void Country::setCurrency() {
+   cout<<"Ingrese el nuevo tipo de moneda: ";
+   cin.ignore(); getline(cin, currency);
 }
 
 // get methods

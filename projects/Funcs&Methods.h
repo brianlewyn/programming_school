@@ -28,9 +28,18 @@ int lenV(Country countries[SIZE]) {
    return cont;
 }
 
+// Check if country is in the vector
+bool checkIfCountryIsInV(Country countries[SIZE], string temp, int len) {
+   for (int i=0; i<len; i++) {
+      if (countries[i].getName() == temp)
+         return true;
+   }
+   return false;
+}
+
 // Sort countries by alphabet in a vector
 void sortCountryByAlphabet(Country countries[SIZE]) {
-   Country temp, aux[SIZE];
+   Country temp;
    for (int i=0; i<SIZE; i++) {
       for (int j=0; j<SIZE; j++) {
          if (countries[i].getName() != "\0" && countries[j].getName() != "\0") {
@@ -42,6 +51,15 @@ void sortCountryByAlphabet(Country countries[SIZE]) {
          }
       }
    }
+}
+
+// Get the index of the continent attribute in the vector
+int getIndexCountryIsInV(Country countries[SIZE], string temp, int len) {
+   for (int i=0; i<len; i++) {
+      if (countries[i].getName() == temp)
+         return i;
+   }
+   return 0;
 }
 
 // Remove a country from the vector
@@ -65,24 +83,8 @@ void removeCountryIsInV(Country countries[SIZE], int len) {
          countries[i].resetData();
       }
    }
-}
 
-// Check if country is in the vector
-bool checkIfCountryIsInV(Country countries[SIZE], string temp, int len) {
-   for (int i=0; i<len; i++) {
-      if (countries[i].getName() == temp)
-         return true;
-   }
-   return false;
-}
-
-// Get the index of the continent attribute in the vector
-int getIndexCountryIsInV(Country countries[SIZE], string temp, int len) {
-   for (int i=0; i<len; i++) {
-      if (countries[i].getName() == temp)
-         return i;
-   }
-   return 0;
+   cout<<"País eliminado del registro\n";
 }
 
 // Check if continent is in the vector
@@ -96,7 +98,6 @@ bool checkIfContinentIsInV(Country countries[SIZE], string temp, int len) {
 
 // Get the set of indices of the continent attribute in the vector
 int getSetIndexContinentIsInV(Country countries[SIZE], int setIndex[SIZE], string temp, int len) {
-   setIndex[SIZE] = {};
    int lenVIndex=0;
    for (int i=0; i<len; i++) {
       if (countries[i].getContinent() == temp) {
@@ -118,7 +119,6 @@ bool checkIfCurrencyIsInV(Country countries[SIZE], string temp, int len) {
 
 // Get the set of indices of the currency attribute in the vector
 int getSetIndexCurrencyIsInV(Country countries[SIZE], int setIndex[SIZE], string temp, int len) {
-   setIndex[SIZE] = {};
    int lenVIndex=0;
    for (int i=0; i<len; i++) {
       if (countries[i].getCurrency() == temp) {
@@ -140,7 +140,6 @@ bool checkIfLanguageIsInV(Country countries[SIZE], string temp, int len) {
 
 // Get the set of indices of the language attribute in the vector
 int getSetIndexLanguageIsInV(Country countries[SIZE], int setIndex[SIZE], string temp, int len) {
-   setIndex[SIZE] = {};
    int lenVIndex=0;
    for (int i=0; i<len; i++) {
       if (countries[i].getLanguage() == temp) {

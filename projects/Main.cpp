@@ -11,14 +11,12 @@ int main() {
    string temp;
 
    // Instantiating some countries
-   Country Mexico("México", "Ciudad_De_México", "América", "Español", "pesos", 15000);
-   Country Cuba("Cuba", "Ciudad_De_Cuba", "América", "aleman", "pesos", 15000);
-   Country Japan("Japan", "Ciudad_De_Japan", "Asia", "japan", "pesos", 15000);
+   Country Mexico("México", "Ciudad De México", "América", "Español", "Pesos", 15000);
+   Country Japan("Japan", "Tokyo", "Asia", "Japones", "Yen", 15000);
 
    // Save instances in vector objects
    countries[0] = Mexico;
-   countries[1] = Cuba;
-   countries[2] = Japan;
+   countries[1] = Japan;
    sortCountryByAlphabet(countries);
    system("clear");
 
@@ -45,7 +43,8 @@ int main() {
       if (digitMenu==1) {
          if (len<SIZE) {
             cout<<"\n# Alta de país";
-            cout<<"\nNombre del país: "; cin>>temp;
+            cout<<"\nNombre del país: ";
+            cin.ignore(); getline(cin, temp);
 
             if (!checkIfCountryIsInV(countries, temp, len)) {
                countries[len].getCountryData(temp);
@@ -67,7 +66,7 @@ int main() {
          if (digitMenu==2) {
             cout<<"\n# Modificación de alguna característica del país";
             cout<<"\nIngrese el nombre del país: ";
-            cin>>temp;
+            cin.ignore(); getline(cin, temp);
 
             if (checkIfCountryIsInV(countries, temp, len)) {
                index = getIndexCountryIsInV(countries, temp, len);
@@ -81,7 +80,7 @@ int main() {
                   cout<<"3. Idioma\n";
                   cout<<"4. Población\n";
                   cout<<"5. Moneda\n";
-                  cout<<"6. Salir \n";
+                  cout<<"6. Salir\n";
 
                   cout<<"\nDigite el número de opción: ";
                   cin>>digitSubMenu;
@@ -109,10 +108,9 @@ int main() {
                         cout<<"Se ha modificado la moneda\n";
                         break;
                      }
-                  }
-
-                  if (!(digitSubMenu>0 && digitSubMenu<=6))
+                  } else {
                      cout<<"[!] Número fuera del rango, vuelva a intentarlo\n";
+                  }
                } while (!(digitSubMenu==6));
                system("clear");
 
@@ -125,13 +123,12 @@ int main() {
          if (digitMenu==3) {
             cout<<"\n# Eliminación de país";
             cout<<"\nIngrese el nombre del país: ";
-            cin>>temp;
+            cin.ignore(); getline(cin, temp);
 
             if (checkIfCountryIsInV(countries, temp, len)) {
                index = getIndexCountryIsInV(countries, temp, len);
                countries[index].resetData();
                removeCountryIsInV(countries, len);
-               cout<<"País eliminado del registro\n";
             } else {
                cout<<"[!] El nombre ingresado, no está en el registro\n";
             }
@@ -141,7 +138,7 @@ int main() {
          if (digitMenu==4) {
             cout<<"\n# Consulta específica de algún país";
             cout<<"\nIngrese el nombre del país: ";
-            cin>>temp;
+            cin.ignore(); getline(cin, temp);
 
             if (checkIfCountryIsInV(countries, temp, len)) {
                index = getIndexCountryIsInV(countries, temp, len);
@@ -155,7 +152,7 @@ int main() {
          if (digitMenu==5) {
             cout<<"\n# Consulta de los países de algún continente";
             cout<<"\nIngrese el nombre del continente: ";
-            cin>>temp;
+            cin.ignore(); getline(cin, temp);
 
             if (checkIfContinentIsInV(countries, temp, len)) {
                lenVIndex = getSetIndexContinentIsInV(countries, setIndex, temp, len);
@@ -171,7 +168,7 @@ int main() {
          if (digitMenu==6) {
             cout<<"\n# Consulta de los países de algún tipo de moneda";
             cout<<"\nIngrese el tipo de moneda: ";
-            cin>>temp;
+            cin.ignore(); getline(cin, temp);
 
             if (checkIfCurrencyIsInV(countries, temp, len)) {
                lenVIndex = getSetIndexCurrencyIsInV(countries, setIndex, temp, len);
@@ -187,7 +184,7 @@ int main() {
          if (digitMenu==7) {
             cout<<"\n# Consulta de los países de algún tipo de idioma";
             cout<<"\nIngrese el tipo de idioma: ";
-            cin>>temp;
+            cin.ignore(); getline(cin, temp);
 
             if (checkIfLanguageIsInV(countries, temp, len)) {
                lenVIndex = getSetIndexLanguageIsInV(countries, setIndex, temp, len);
