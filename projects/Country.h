@@ -10,21 +10,14 @@ class Country {
       // Default
       Country() {}
 
-      // Specific builder
-      Country(string _name, string _capital, string _continent, string _language, string _currency, int _population) {
-         name = _name;
-         capital = _capital;
-         continent = _continent;
-         language = _language;
-         currency = _currency;
-         population = _population;
-      }
+      // Constructor
+      Country(string, string, string, string, string, int);
 
       // Destroyer
       ~Country() {} // countries[index].~Country();
 
       // another methods
-      void getCountryData(string nameCountry);
+      void getAttributes(string nameCountry);
       void showCountryData();
       void resetData();
 

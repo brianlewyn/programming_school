@@ -10,15 +10,11 @@ int main() {
    char answear;
    string temp;
 
-   // Instantiating some countries
-   Country Mexico("México", "Ciudad De México", "América", "Español", "Pesos", 15000);
-   Country Japan("Japan", "Tokyo", "Asia", "Japones", "Yen", 15000);
-
-   // Save instances in vector objects
-   countries[0] = Mexico;
-   countries[1] = Japan;
+   // Instantiating & Save instances in vector objects
+   countries[0] = Country("México", "Ciudad De México", "América", "Español", "Pesos", 15000);
+   countries[1] = Country("Japan", "Tokyo", "Asia", "Japones", "Yen", 15000);
    sortCountryByAlphabet(countries);
-   system("clear");
+   clear();
 
    do {
       // Main menu
@@ -34,7 +30,7 @@ int main() {
 
       cout<<"\nDigite el número de opción: ";
       cin>>digitMenu;
-      system("clear");
+      clear();
 
       // Check how many countries are there?
       len = lenV(countries);
@@ -47,10 +43,10 @@ int main() {
             cin.ignore(); getline(cin, temp);
 
             if (!checkIfCountryIsInV(countries, temp, len)) {
-               countries[len].getCountryData(temp);
+               countries[len].getAttributes(temp);
                sortCountryByAlphabet(countries);
             } else {
-               system("clear");
+               clear();
                cout<<"\n[!] El nombre ingresado ya está includo en el registro\n";
             }
          } else {
@@ -72,7 +68,7 @@ int main() {
                index = getIndexCountryIsInV(countries, temp, len);
 
                do {
-                  system("clear");
+                  clear();
                   // Secondary menu
                   cout<<"SubMenú ["<<temp<<"]:\n";
                   cout<<"1. Capital\n";
@@ -112,7 +108,7 @@ int main() {
                      cout<<"[!] Número fuera del rango, vuelva a intentarlo\n";
                   }
                } while (!(digitSubMenu==6));
-               system("clear");
+               clear();
 
             } else {
                cout<<"[!] El nombre ingresado, no está en el registro\n";
@@ -200,7 +196,7 @@ int main() {
       }
 
       if (digitMenu<0 || digitMenu>8) {
-         system("clear");
+         clear();
          cout<<"[!] Número fuera del rango, vuelva a intentarlo\n";
       }
    } while (!(digitMenu==8));

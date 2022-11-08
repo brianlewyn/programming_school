@@ -1,7 +1,19 @@
+#include <iostream>
 #include "Country.h"
+using namespace std;
+
+// constructor
+Country::Country(string name, string capital, string continent, string language, string currency, int population) {
+   this->name = name;
+   this->capital = capital;
+   this->continent = continent;
+   this->language = language;
+   this->currency = currency;
+   this->population = population;
+}
 
 // another methods
-void Country::getCountryData(string nameCountry) {
+void Country::getAttributes(string nameCountry) {
    name = nameCountry;
    cout<<"Capital: ";
    cin.ignore(); getline(cin, capital);
@@ -10,7 +22,7 @@ void Country::getCountryData(string nameCountry) {
    cout<<"Idioma: ";
    cin.ignore(); getline(cin, language);
    cout<<"Población: "; cin>>population;
-   cout<<"Moneda: "; cin>>currency;
+   cout<<"Moneda: ";
    cin.ignore(); getline(cin, currency);
 }
 
