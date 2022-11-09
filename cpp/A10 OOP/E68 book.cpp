@@ -27,8 +27,19 @@ class Libro{
       int nPag;
    
    public:
+      Libro(){}
       Libro(string, string, string, int);
       void mostrarDatos();
+
+      void setName(string nameBook);
+      void setISBN(string nIsbn);
+      void setAutor(string nameAutor);
+      void setNPag(int n);
+
+      string getName();
+      string getISBN();
+      string getAutor();
+      int getNPag();
 };
 
 Libro::Libro(string _titulo, string _isbn, string _autor, int _nPag) {
@@ -38,15 +49,63 @@ Libro::Libro(string _titulo, string _isbn, string _autor, int _nPag) {
    nPag = _nPag;
 }
 
+void Libro::setName(string nameBook) {
+   titulo = nameBook;
+}
+void Libro::setISBN(string nIsbn) {
+   isbn = nIsbn;
+}
+void Libro::setAutor(string nameAutor) {
+   autor = nameAutor;
+}
+void Libro::setNPag(int n) {
+   nPag = n;
+}
+
+string Libro::getName() {
+   return titulo;
+}
+string Libro::getISBN() {
+   return isbn;
+}
+string Libro::getAutor() {
+   return autor;
+}
+int Libro::getNPag() {
+   return nPag;
+}
+
 void Libro::mostrarDatos() {
-   cout<<"El libro "<<titulo<<" con ISBN "<<isbn<<" creado por el autor "<<autor<<" tiene "<<nPag<<" páginas\n";
+   cout<<"\nEl libro "<<getName()<<" con ISBN "<<getISBN()<<" creado por el autor "<<getAutor()<<" tiene "<<getNPag()<<" páginas\n";
 }
 
 int main() {
+   string title, isbn, autor;
+   int nPag;
+
    Libro book1("libro1", "123a456b789d", "Mr. John", 560);
-   Libro book2("libro2", "123A456B789D", "Mr. Tales", 825);
+   Libro newBook;
+
+   cout<<"Programa para agregar un nuevo libro\n\n";
+
+   cout<<"Ingrese el nombre del libro: ";
+   getline(cin, title);
+   newBook.setName(title);
+
+   cout<<"Ingrese el número de ISBN: ";
+   cin>>isbn;
+   newBook.setISBN(isbn);
+
+   cout<<"Ingrese el autor: ";
+   cin.ignore();
+   getline(cin, autor);
+   newBook.setAutor(autor);
+
+   cout<<"Ingrese el número de páginas: ";
+   cin>>nPag;
+   newBook.setNPag(nPag);
 
    book1.mostrarDatos();
-   book2.mostrarDatos();
+   newBook.mostrarDatos();
    return 0;
 }
