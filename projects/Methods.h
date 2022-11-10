@@ -29,12 +29,12 @@ void Country::getAttributes(string nameCountry) {
 }
 
 void Country::showCountryData() {
-   cout<<"\n# "<<name;
+   cout<<"# "<<name;
    cout<<"\nCapital: "<<capital;
    cout<<"\nContinente: "<<continent;
    cout<<"\nIdioma: "<<language;
    cout<<"\nMoneda: "<<currency;
-   cout<<"\nPoblación: "<<population<<endl<<endl;
+   cout<<"\nPoblación: "<<population<<"\n\n";
 }
 
 void Country::resetData() {

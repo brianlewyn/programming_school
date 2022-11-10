@@ -29,8 +29,7 @@ int main() {
       cout<<"8. Salir\n";
 
       cout<<"\nDigite el número de opción: ";
-      cin>>digitMenu;
-      clear();
+      cin>>digitMenu; clear();
 
       // Check how many countries are there?
       len = lenV(countries);

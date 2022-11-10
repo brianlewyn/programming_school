@@ -1,7 +1,7 @@
 // By brianlewyn
 #include "Methods.h"
 
-const int SIZE = 5;
+const int SIZE = 50;
 
 void clear();
 int lenV(Country countries[SIZE]);
