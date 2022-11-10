@@ -1,3 +1,4 @@
+// By brianlewyn
 #include <iostream>
 #include "Country.h"
 using namespace std;
@@ -16,14 +17,15 @@ Country::Country(string name, string capital, string continent, string language,
 void Country::getAttributes(string nameCountry) {
    name = nameCountry;
    cout<<"Capital: ";
-   cin.ignore(); getline(cin, capital);
+   getline(cin, capital);
    cout<<"Continente: ";
-   cin.ignore(); getline(cin, continent);
+   getline(cin, continent);
    cout<<"Idioma: ";
-   cin.ignore(); getline(cin, language);
+   getline(cin, language);
    cout<<"Moneda: ";
-   cin.ignore(); getline(cin, currency);
+   getline(cin, currency);
    cout<<"Población: "; cin>>population;
+   cout<<endl;
 }
 
 void Country::showCountryData() {
@@ -32,7 +34,7 @@ void Country::showCountryData() {
    cout<<"\nContinente: "<<continent;
    cout<<"\nIdioma: "<<language;
    cout<<"\nMoneda: "<<currency;
-   cout<<"\nPoblación: "<<population<<endl;
+   cout<<"\nPoblación: "<<population<<endl<<endl;
 }
 
 void Country::resetData() {

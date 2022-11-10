@@ -1,9 +1,11 @@
+// By brianlewyn
 #include "Methods.h"
 
-const int SIZE = 50;
+const int SIZE = 5;
 
 void clear();
 int lenV(Country countries[SIZE]);
+
 void sortCountryByAlphabet(Country countries[SIZE]);
 void removeCountryIsInV(Country countries[SIZE], int len);
 
@@ -89,8 +91,6 @@ void removeCountryIsInV(Country countries[SIZE], int len) {
          countries[i].resetData();
       }
    }
-
-   cout<<"País eliminado del registro\n";
 }
 
 // Check if continent is in the vector
