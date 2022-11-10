@@ -22,11 +22,11 @@ class Country {
       void resetData();
 
       // set methods
-      void setCapital();
-      void setContinent();
-      void setLanguage();
-      void setCurrency();
-      void setPopulation();
+      void setCapital(string nameCapital);
+      void setContinent(string nameCapital);
+      void setLanguage(string nameCapital);
+      void setCurrency(string nameCapital);
+      void setPopulation(int numPopulation);
 
       // get methods
       string getName();

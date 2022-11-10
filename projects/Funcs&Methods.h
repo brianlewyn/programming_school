@@ -1,7 +1,6 @@
 #include "Methods.h"
 
 const int SIZE = 50;
-const char SYSTEM[] = "Linux"; 
 
 void clear();
 int lenV(Country countries[SIZE]);
@@ -22,12 +21,7 @@ int getSetIndexLanguageIsInV(Country countries[SIZE], int setIndex[SIZE], string
 
 // Screen cleaning method
 void clear() {
-   if (SYSTEM == "Windows") {
-      system("cls");
-   }
-   if (SYSTEM == "Linux") {
-      system("clear");
-   }
+   system("clear || cls");
 }
 
 // Get the length of a vector

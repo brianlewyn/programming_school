@@ -6,13 +6,13 @@ using namespace std;
 
 int main() {
    Country countries[SIZE]={};
-   int digitMenu, digitSubMenu, len, index, lenVIndex, setIndex[SIZE]={};
+   int digitMenu, digitSubMenu, len, tempInt, index, lenVIndex, setIndex[SIZE]={}; 
    char answear;
-   string temp;
+   string tempStr;
 
    // Instantiating & Save instances in vector objects
-   countries[0] = Country("México", "Ciudad De México", "América", "Español", "Pesos", 15000);
-   countries[1] = Country("Japan", "Tokyo", "Asia", "Japones", "Yen", 15000);
+   countries[0] = Country("México", "Ciudad De México", "América", "Español", "Pesos", 126014024);
+   countries[1] = Country("Japan", "Tokyo", "Asia", "Japones", "Yen", 127368088);
    sortCountryByAlphabet(countries);
    clear();
 
@@ -40,10 +40,10 @@ int main() {
          if (len<SIZE) {
             cout<<"\n# Alta de país";
             cout<<"\nNombre del país: ";
-            cin.ignore(); getline(cin, temp);
+            cin.ignore(); getline(cin, tempStr);
 
-            if (!checkIfCountryIsInV(countries, temp, len)) {
-               countries[len].getAttributes(temp);
+            if (!checkIfCountryIsInV(countries, tempStr, len)) {
+               countries[len].getAttributes(tempStr);
                sortCountryByAlphabet(countries);
             } else {
                clear();
@@ -62,20 +62,20 @@ int main() {
          if (digitMenu==2) {
             cout<<"\n# Modificación de alguna característica del país";
             cout<<"\nIngrese el nombre del país: ";
-            cin.ignore(); getline(cin, temp);
+            cin.ignore(); getline(cin, tempStr);
 
-            if (checkIfCountryIsInV(countries, temp, len)) {
-               index = getIndexCountryIsInV(countries, temp, len);
+            if (checkIfCountryIsInV(countries, tempStr, len)) {
+               index = getIndexCountryIsInV(countries, tempStr, len);
 
                do {
                   clear();
                   // Secondary menu
-                  cout<<"SubMenú ["<<temp<<"]:\n";
+                  cout<<"SubMenú ["<<tempStr<<"]:\n";
                   cout<<"1. Capital\n";
                   cout<<"2. Continente\n";
                   cout<<"3. Idioma\n";
-                  cout<<"4. Población\n";
-                  cout<<"5. Moneda\n";
+                  cout<<"4. Moneda\n";
+                  cout<<"5. Población\n";
                   cout<<"6. Salir\n";
 
                   cout<<"\nDigite el número de opción: ";
@@ -84,24 +84,34 @@ int main() {
                   if (digitSubMenu>0 && digitSubMenu<6) {
                      switch (digitSubMenu){
                      case 1:
-                        countries[index].setCapital();
+                        cout<<"Ingrese el nuevo nombre de la capital: ";
+                        cin.ignore(); getline(cin, tempStr);
+                        countries[index].setCapital(tempStr);
                         cout<<"Se ha modificado la capital\n";
                         break;
                      case 2:
-                        countries[index].setContinent();
+                        cout<<"Ingrese el nuevo nombre del continente: ";
+                        cin.ignore(); getline(cin, tempStr);
+                        countries[index].setContinent(tempStr);
                         cout<<"Se ha modificado el continente\n";
                         break;
                      case 3:
-                        countries[index].setLanguage();
+                        cout<<"Ingrese el nuevo nombre del idioma: ";
+                        cin.ignore(); getline(cin, tempStr);
+                        countries[index].setLanguage(tempStr);
                         cout<<"Se ha modificado el idioma\n";
                         break;
                      case 4:
-                        countries[index].setPopulation();
-                        cout<<"Se ha modificado la población\n";
+                        cout<<"Ingrese el nuevo tipo de moneda: ";
+                        cin.ignore(); getline(cin, tempStr);
+                        countries[index].setCurrency(tempStr);
+                        cout<<"Se ha modificado la moneda\n";
                         break;
                      default:
-                        countries[index].setCurrency();
-                        cout<<"Se ha modificado la moneda\n";
+                        cout<<"Ingrese el nuevo total de la población: ";
+                        cin>>tempInt;
+                        countries[index].setPopulation(tempInt);
+                        cout<<"Se ha modificado la población\n";
                         break;
                      }
                   } else {
@@ -119,10 +129,10 @@ int main() {
          if (digitMenu==3) {
             cout<<"\n# Eliminación de país";
             cout<<"\nIngrese el nombre del país: ";
-            cin.ignore(); getline(cin, temp);
+            cin.ignore(); getline(cin, tempStr);
 
-            if (checkIfCountryIsInV(countries, temp, len)) {
-               index = getIndexCountryIsInV(countries, temp, len);
+            if (checkIfCountryIsInV(countries, tempStr, len)) {
+               index = getIndexCountryIsInV(countries, tempStr, len);
                countries[index].resetData();
                removeCountryIsInV(countries, len);
             } else {
@@ -134,10 +144,10 @@ int main() {
          if (digitMenu==4) {
             cout<<"\n# Consulta específica de algún país";
             cout<<"\nIngrese el nombre del país: ";
-            cin.ignore(); getline(cin, temp);
+            cin.ignore(); getline(cin, tempStr);
 
-            if (checkIfCountryIsInV(countries, temp, len)) {
-               index = getIndexCountryIsInV(countries, temp, len);
+            if (checkIfCountryIsInV(countries, tempStr, len)) {
+               index = getIndexCountryIsInV(countries, tempStr, len);
                countries[index].showCountryData();
             } else {
                cout<<"[!] El nombre ingresado, no está en el registro\n";
@@ -148,10 +158,10 @@ int main() {
          if (digitMenu==5) {
             cout<<"\n# Consulta de los países de algún continente";
             cout<<"\nIngrese el nombre del continente: ";
-            cin.ignore(); getline(cin, temp);
+            cin.ignore(); getline(cin, tempStr);
 
-            if (checkIfContinentIsInV(countries, temp, len)) {
-               lenVIndex = getSetIndexContinentIsInV(countries, setIndex, temp, len);
+            if (checkIfContinentIsInV(countries, tempStr, len)) {
+               lenVIndex = getSetIndexContinentIsInV(countries, setIndex, tempStr, len);
                for (int i=0; i<lenVIndex; i++) {
                   countries[setIndex[i]].showCountryData();
                }
@@ -164,10 +174,10 @@ int main() {
          if (digitMenu==6) {
             cout<<"\n# Consulta de los países de algún tipo de moneda";
             cout<<"\nIngrese el tipo de moneda: ";
-            cin.ignore(); getline(cin, temp);
+            cin.ignore(); getline(cin, tempStr);
 
-            if (checkIfCurrencyIsInV(countries, temp, len)) {
-               lenVIndex = getSetIndexCurrencyIsInV(countries, setIndex, temp, len);
+            if (checkIfCurrencyIsInV(countries, tempStr, len)) {
+               lenVIndex = getSetIndexCurrencyIsInV(countries, setIndex, tempStr, len);
                for (int i=0; i<lenVIndex; i++) {
                   countries[setIndex[i]].showCountryData();
                }
@@ -180,10 +190,10 @@ int main() {
          if (digitMenu==7) {
             cout<<"\n# Consulta de los países de algún tipo de idioma";
             cout<<"\nIngrese el tipo de idioma: ";
-            cin.ignore(); getline(cin, temp);
+            cin.ignore(); getline(cin, tempStr);
 
-            if (checkIfLanguageIsInV(countries, temp, len)) {
-               lenVIndex = getSetIndexLanguageIsInV(countries, setIndex, temp, len);
+            if (checkIfLanguageIsInV(countries, tempStr, len)) {
+               lenVIndex = getSetIndexLanguageIsInV(countries, setIndex, tempStr, len);
                for (int i=0; i<lenVIndex; i++) {
                   countries[setIndex[i]].showCountryData();
                }
