@@ -6,6 +6,7 @@ class Country {
    private:
       string name, capital, continent, language, currency;
       int population;
+      string getFormatPopulation();
 
    public:
       // Default
@@ -13,9 +14,6 @@ class Country {
 
       // Constructor
       Country(string, string, string, string, string, int);
-
-      // Destroyer
-      ~Country() {} // countries[index].~Country();
 
       // another methods
       void getAttributes(string);

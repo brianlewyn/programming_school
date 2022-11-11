@@ -1,17 +1,26 @@
 // By brianlewyn
+#include <cstdlib>
 #include "Methods.h"
 
 const int SIZE = 50;
 
+// Other funcs
 void clear();
-int lenV(Country countries[SIZE]);
+int lenStr(string temp);
 
+// Func to verify that the data is correct
+bool verifyAsNumber(string answear);
+void askAndAnswerWidtInt(string sentence, int &answear);
+
+// Func for an array of objects
+int lenV(Country countries[SIZE]);
 void sortCountryByAlphabet(Country countries[SIZE]);
 void removeCountryIsInV(Country countries[SIZE], int len);
 
 bool checkIfCountryIsInV(Country countries[SIZE], string name, int len);
 int getIndexCountryIsInV(Country countries[SIZE], string name, int len);
 
+// Func for attributes [array of objects]
 bool checkIfContinentIsInV(Country countries[SIZE], string name, int len);
 int getSetIndexContinentIsInV(Country countries[SIZE], int set[SIZE], string temp, int len);
 
@@ -24,6 +33,39 @@ int getSetIndexLanguageIsInV(Country countries[SIZE], int setIndex[SIZE], string
 // Screen cleaning method
 void clear() {
    system("clear || cls");
+}
+
+// Length of a string
+int lenStr(string temp) {
+   int len;
+   for (len=0; temp[len]!='\0'; len++);
+   return len;
+}
+
+// Check that the answer is a number
+bool checkAsNumber(char answear) {
+   if (48<=answear && answear<=57) {
+      return true;
+   }
+   return false;
+}
+
+// Ask until the user answers with integer
+void askAndAnswerWidtInt(string sentence, int &answear) {
+   int len;
+   string tempStr;
+
+   do {
+      cout<<sentence;
+      getline(cin, tempStr);
+      len = lenStr(tempStr);
+
+      if (len==1 && checkAsNumber(tempStr[0])) {
+         answear = stoi(tempStr);
+      } else {
+         cout<<"\n[!] Debe ser número de un digito\n";
+      }
+   } while(!(len==1 && checkAsNumber(tempStr[0])));
 }
 
 // Get the length of a vector

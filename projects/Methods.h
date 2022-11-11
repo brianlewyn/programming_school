@@ -1,9 +1,46 @@
 // By brianlewyn
 #include <iostream>
+#include <string>
 #include "Country.h"
 using namespace std;
 
-// constructor
+// Private methods
+string Country::getFormatPopulation() {
+   int len=0, cont=0;
+   string reverse, temp = to_string(population);
+
+   // Length
+   for (len; temp[len]!='\0'; len++);
+
+   // Reverse number
+   for (int i=len; i>=0; i--) {
+      reverse += temp[i];
+   }
+
+   // Reverse number with format
+   temp = "";
+   for (int i=0; i<=len; i++) {
+      if (i%3==0 && i!=0) {
+         temp += reverse[i];
+         if (i!=0 && i!=len) {
+            temp += ",";
+         }
+         cont++;
+      } else {
+         temp += reverse[i];
+      }
+   }
+
+   // Again, reverse number with format
+   reverse = "";
+   for (int i=len+cont; i>=0; i--) {
+      reverse += temp[i];
+   }
+
+   return reverse;
+}
+
+// Constructor
 Country::Country(string _name, string _capital, string _continent, string _language, string _currency, int _population) {
    this->name = _name;
    this->capital = _capital;
@@ -13,7 +50,7 @@ Country::Country(string _name, string _capital, string _continent, string _langu
    this->population = _population;
 }
 
-// another methods
+// Other methods
 void Country::getAttributes(string nameCountry) {
    name = nameCountry;
    cout<<"Capital: ";
@@ -24,8 +61,8 @@ void Country::getAttributes(string nameCountry) {
    getline(cin, language);
    cout<<"Moneda: ";
    getline(cin, currency);
-   cout<<"Población: "; cin>>population;
-   cout<<endl;
+   cout<<"Población: "; 
+   cin>>population; cout<<endl;
 }
 
 void Country::showCountryData() {
@@ -34,7 +71,8 @@ void Country::showCountryData() {
    cout<<"\nContinente: "<<continent;
    cout<<"\nIdioma: "<<language;
    cout<<"\nMoneda: "<<currency;
-   cout<<"\nPoblación: "<<population<<"\n\n";
+   cout<<"\nPoblación total: ";
+   cout<<getFormatPopulation()<<"\n\n";
 }
 
 void Country::resetData() {

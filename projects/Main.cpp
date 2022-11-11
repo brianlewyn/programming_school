@@ -7,13 +7,7 @@ using namespace std;
 int main() {
    Country countries[SIZE]={};
    int digitMenu, digitSubMenu, len, tempInt, index, lenVIndex, setIndex[SIZE]={}; 
-   char answear;
-   string tempStr, tempStr2;
-
-   // Instantiating & Save instances in vector objects
-   countries[0] = Country("México", "Ciudad De México", "América", "Español", "Pesos", 126014024);
-   countries[1] = Country("Japan", "Tokyo", "Asia", "Japones", "Yen", 127368088);
-   sortCountryByAlphabet(countries);
+   string sentence, tempStr, tempStr2;
 
    clear();
    do {
@@ -26,10 +20,11 @@ int main() {
       cout<<"5. Consulta de los países de algún continente\n";
       cout<<"6. Consulta de los países de algún tipo de moneda\n";
       cout<<"7. Consulta de los países de algún tipo de idioma\n";
-      cout<<"8. Salir\n\n";
+      cout<<"8. Mostrar todos los registros\n";
+      cout<<"9. Salir\n\n";
 
-      cout<<"Digite el número de opción: ";
-      cin>>digitMenu; clear();
+      askAndAnswerWidtInt("Digite el número de opción: ", digitMenu);
+      clear();
 
       // Check how many countries are there?
       len = lenV(countries);
@@ -44,6 +39,8 @@ int main() {
             if (!checkIfCountryIsInV(countries, tempStr, len)) {
                countries[len].getAttributes(tempStr);
                sortCountryByAlphabet(countries);
+               clear();
+               cout<<"[!] El país, se ha dado de alta en el registro\n\n";
             } else {
                clear();
                cout<<"[!] El nombre ingresado ya está includo en el registro\n\n";
@@ -76,8 +73,8 @@ int main() {
                   cout<<"5. Población\n";
                   cout<<"6. Salir\n\n";
 
-                  cout<<"Digite el número de opción: ";
-                  cin>>digitSubMenu; clear();
+                  askAndAnswerWidtInt("Digite el número de opción: ", digitSubMenu);
+                  clear();
 
                   if (digitSubMenu>0 && digitSubMenu<6) {
                      switch (digitSubMenu){
@@ -205,28 +202,26 @@ int main() {
                cout<<"[!] El tipo ingresado, no está en el registro\n\n";
             }
          }
+
+         // Show all objects were saved
+         if (digitMenu==8) {
+            cout<<"# Mostrar todos los registros\n\n";
+            for (int i=0; i<SIZE; i++) {
+               if (countries[i].getName() != "\0") {
+                  countries[i].showCountryData();
+               }
+            }
+         }
       } else {
          cout<<"[!] No hay registros\n\n";
       }
 
-      if (digitMenu<0 || digitMenu>8) {
+      if (digitMenu<0 || digitMenu>9) {
          clear();
          cout<<"[!] Número fuera del rango, vuelva a intentarlo\n\n";
       }
-   } while (!(digitMenu==8));
+   } while (!(digitMenu==9));
+
    clear();
-
-   // Check that all objects were saved
-   cout<<"Deseas ver todos los registros (s/n): ";
-   cin>>answear;
-
-   if (answear=='s' || answear=='S') {
-      for (int i=0; i<SIZE; i++) {
-         if (countries[i].getName() != "\0") {
-            countries[i].showCountryData();
-         }
-      }
-   }
-
    return 0;
 }
