@@ -4,13 +4,13 @@
 using namespace std;
 
 // constructor
-Country::Country(string name, string capital, string continent, string language, string currency, int population) {
-   this->name = name;
-   this->capital = capital;
-   this->continent = continent;
-   this->language = language;
-   this->currency = currency;
-   this->population = population;
+Country::Country(string _name, string _capital, string _continent, string _language, string _currency, int _population) {
+   this->name = _name;
+   this->capital = _capital;
+   this->continent = _continent;
+   this->language = _language;
+   this->currency = _currency;
+   this->population = _population;
 }
 
 // another methods

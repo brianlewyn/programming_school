@@ -18,16 +18,16 @@ class Country {
       ~Country() {} // countries[index].~Country();
 
       // another methods
-      void getAttributes(string nameCountry);
+      void getAttributes(string);
       void showCountryData();
       void resetData();
 
       // set methods
-      void setCapital(string nameCapital);
-      void setContinent(string nameCapital);
-      void setLanguage(string nameCapital);
-      void setCurrency(string nameCapital);
-      void setPopulation(int numPopulation);
+      void setCapital(string);
+      void setContinent(string);
+      void setLanguage(string);
+      void setCurrency(string);
+      void setPopulation(int);
 
       // get methods
       string getName();

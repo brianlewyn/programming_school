@@ -26,9 +26,9 @@ int main() {
       cout<<"5. Consulta de los países de algún continente\n";
       cout<<"6. Consulta de los países de algún tipo de moneda\n";
       cout<<"7. Consulta de los países de algún tipo de idioma\n";
-      cout<<"8. Salir\n";
+      cout<<"8. Salir\n\n";
 
-      cout<<"\nDigite el número de opción: ";
+      cout<<"Digite el número de opción: ";
       cin>>digitMenu; clear();
 
       // Check how many countries are there?
