@@ -1,7 +1,7 @@
-// By brianlewyn
+// Country.h > FuncsForMethod.h > Methods.h
 #include <iostream>
 #include <string>
-#include "Country.h"
+#include "FuncsForMethod.h"
 using namespace std;
 
 // Private methods
@@ -40,6 +40,16 @@ string Country::getFormatPopulation() {
    return reverse;
 }
 
+// Default
+Country::Country() {
+   this->name = "";
+   this->capital = "";
+   this->continent = "";
+   this->language = "";
+   this->currency = "";
+   this->population = 0;
+}
+
 // Constructor
 Country::Country(string _name, string _capital, string _continent, string _language, string _currency, int _population) {
    this->name = _name;
@@ -52,17 +62,27 @@ Country::Country(string _name, string _capital, string _continent, string _langu
 
 // Other methods
 void Country::getAttributes(string nameCountry) {
-   name = nameCountry;
+   string temp;
+   this->name = nameCountry;
+
    cout<<"Capital: ";
-   getline(cin, capital);
+   getline(cin, temp);
+   this->capital = temp;
+
    cout<<"Continente: ";
-   getline(cin, continent);
+   getline(cin, temp);
+   this->continent = temp;
+
    cout<<"Idioma: ";
-   getline(cin, language);
+   getline(cin, temp);
+   this->language = temp;
+
    cout<<"Moneda: ";
-   getline(cin, currency);
-   cout<<"Población: "; 
-   cin>>population; cout<<endl;
+   getline(cin, temp);
+   this->currency = temp;
+
+   this->population = intRequest("Población: ");
+   cout<<endl;
 }
 
 void Country::showCountryData() {
@@ -76,47 +96,47 @@ void Country::showCountryData() {
 }
 
 void Country::resetData() {
-   name = "";
-   capital = "";
-   continent = "";
-   language = "";
-   currency = "";
-   population = 0;
+   this->name = "";
+   this->capital = "";
+   this->continent = "";
+   this->language = "";
+   this->currency = "";
+   this->population = 0;
 }
 
 // set methods
 void Country::setCapital(string nameCapital) {
-   capital = nameCapital;
+   this->capital = nameCapital;
 }
 void Country::setContinent(string nameContinent) {
-   continent = nameContinent;
+   this->continent = nameContinent;
 }
 void Country::setLanguage(string nameLanguage) {
-   language = nameLanguage;
+   this->language = nameLanguage;
 }
 void Country::setCurrency(string nameCurrency) {
-   currency = nameCurrency;
+   this->currency = nameCurrency;
 }
 void Country::setPopulation(int numPopulation) {
-   population = numPopulation;
+   this->population = numPopulation;
 }
 
 // get methods
 string Country::getName() {
-   return name;
+   return this->name;
 }
 string Country::getCapital() {
-   return capital;
+   return this->capital;
 }
 string Country::getContinent() {
-   return continent;
+   return this->continent;
 }
 string Country::getLanguage() {
-   return language;
+   return this->language;
 }
 string Country::getCurrency() {
-   return currency;
+   return this->currency;
 }
 int Country::getPopulation() {
-   return population;
+   return this->population;
 }

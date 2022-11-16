@@ -1,4 +1,4 @@
-// By brianlewyn
+// Country.h
 #include <iostream>
 using namespace std;
 
@@ -10,7 +10,7 @@ class Country {
 
    public:
       // Default
-      Country() {}
+      Country();
 
       // Constructor
       Country(string, string, string, string, string, int);
