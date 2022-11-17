@@ -38,7 +38,7 @@ int main() {
             getline(cin, tempStr);
 
             if (!checkIfOptionInArray(countries, "Country", tempStr, len)) {
-               countries[len].getAttributes(tempStr);
+               countries[len].getData(tempStr);
                sortCountryByAlphabet(countries);
                clear();
                cout<<"[!] El país, se ha dado de alta en el registro\n\n";

@@ -61,7 +61,7 @@ Country::Country(string _name, string _capital, string _continent, string _langu
 }
 
 // Other methods
-void Country::getAttributes(string nameCountry) {
+void Country::getData(string nameCountry) {
    string temp;
    this->name = nameCountry;
 

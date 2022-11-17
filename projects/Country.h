@@ -16,7 +16,7 @@ class Country {
       Country(string, string, string, string, string, int);
 
       // another methods
-      void getAttributes(string);
+      void getData(string);
       void showCountryData();
       void resetData();
 
