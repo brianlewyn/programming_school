@@ -7,7 +7,7 @@ using namespace std;
 int main() {
    Country countries[SIZE];
    int digitMenu, digitSubMenu;
-   int len, tempInt, index, lenIndices, indeces[SIZE]={}; 
+   int len, tempInt, index, lenIndices, indices[SIZE]={}; 
    string tempStr, tempStr2;
    bool flag=true;
 
@@ -168,9 +168,9 @@ int main() {
             ignoreWitFlag(flag); getline(cin, tempStr); clear();
 
             if (checkIfOptionInArray(countries, "Continent", tempStr, len)) {
-               lenIndices = getIndicesOfOptionInArray(countries, indeces, "Continet", tempStr, len);
+               lenIndices = getIndicesOfOptionInArray(countries, indices, "Continent", tempStr, len);
                for (int i=0; i<lenIndices; i++) {
-                  countries[indeces[i]].showCountryData();
+                  countries[indices[i]].showCountryData();
                }
             } else {
                cout<<"[!] El nombre ingresado, no está en el registro\n\n";
@@ -184,9 +184,9 @@ int main() {
             ignoreWitFlag(flag); getline(cin, tempStr); clear();
 
             if (checkIfOptionInArray(countries, "Currency", tempStr, len)) {
-               lenIndices = getIndicesOfOptionInArray(countries, indeces, "Currency", tempStr, len);
+               lenIndices = getIndicesOfOptionInArray(countries, indices, "Currency", tempStr, len);
                for (int i=0; i<lenIndices; i++) {
-                  countries[indeces[i]].showCountryData();
+                  countries[indices[i]].showCountryData();
                }
             } else {
                cout<<"[!] El tipo ingresado, no está en el registro\n\n";
@@ -200,9 +200,9 @@ int main() {
             ignoreWitFlag(flag); getline(cin, tempStr); clear();
 
             if (checkIfOptionInArray(countries, "Language", tempStr, len)) {
-               lenIndices = getIndicesOfOptionInArray(countries, indeces, "Language", tempStr, len);
+               lenIndices = getIndicesOfOptionInArray(countries, indices, "Language", tempStr, len);
                for (int i=0; i<lenIndices; i++) {
-                  countries[indeces[i]].showCountryData();
+                  countries[indices[i]].showCountryData();
                }
             } else {
                cout<<"[!] El tipo ingresado, no está en el registro\n\n";
