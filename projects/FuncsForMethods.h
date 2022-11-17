@@ -1,4 +1,6 @@
-// Country.h > FuncsForMethod.h
+#ifndef _FuncsForMethods_H_
+#define _FuncsForMethods_H_
+
 #include <iostream>
 #include "Country.h"
 using namespace std;
@@ -42,3 +44,4 @@ int intRequest(string prompt) {
    } while(!checkAsNumber(temp));
    return answer;
 }
+#endif

@@ -1,4 +1,6 @@
-// Country.h > FuncsForMethod.h > Methods.h > Funcs.h
+#ifndef _FuncsForMain_H_
+#define _FuncsForMain_H_
+
 #include <cstdlib>
 #include "Methods.h"
 
@@ -114,3 +116,4 @@ int getIndicesOfOptionInArray(Country countries[SIZE], int setIndex[SIZE], strin
    }
    return lenIndices;
 }
+#endif

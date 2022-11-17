@@ -1,4 +1,6 @@
-// Country.h
+#ifndef _Country_H_
+#define _Country_H_
+
 #include <iostream>
 using namespace std;
 
@@ -35,3 +37,4 @@ class Country {
       string getCurrency();
       int getPopulation();
 };
+#endif

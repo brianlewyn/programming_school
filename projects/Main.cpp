@@ -1,7 +1,5 @@
-// By brianlewyn
 #include <iostream>
-#include <stdlib.h>
-#include "Funcs.h"
+#include "FuncsForMain.h"
 using namespace std;
 
 int main() {

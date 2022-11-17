@@ -1,4 +1,6 @@
-// Country.h > FuncsForMethod.h > Methods.h
+#ifndef _Methods_H_
+#define _Methods_H_
+
 #include <iostream>
 #include <string>
 #include "FuncsForMethods.h"
@@ -140,3 +142,4 @@ string Country::getCurrency() {
 int Country::getPopulation() {
    return this->population;
 }
+#endif
