@@ -7,9 +7,6 @@ const int SIZE = 50;
 // Other funcs
 void clear();
 
-// Funcs to verify that the data is correct
-void ignoreWitFlag(bool &flag);
-
 // Funcs for an array of objects
 int lenArray(Country countries[SIZE]);
 void sortCountryByAlphabet(Country countries[SIZE]);
@@ -23,15 +20,6 @@ int getIndicesOfOptionInArray(Country countries[SIZE], int setIndex[SIZE], strin
 // Screen cleaning method
 void clear() {
    system("clear || cls");
-}
-
-// Adapt the cin.ignore() to use it in a loop
-void ignoreWitFlag(bool &flag) {
-   if (flag) {
-      flag=false;
-   } else {
-      cin.ignore();
-   }
 }
 
 // Get the length of a vector

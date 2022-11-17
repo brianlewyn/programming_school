@@ -1,7 +1,7 @@
 // Country.h > FuncsForMethod.h > Methods.h
 #include <iostream>
 #include <string>
-#include "FuncsForMethod.h"
+#include "FuncsForMethods.h"
 using namespace std;
 
 // Private methods
