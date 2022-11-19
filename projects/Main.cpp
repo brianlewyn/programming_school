@@ -37,7 +37,7 @@ int main() {
 
             if (!checkIfOptionInArray(countries, "Country", tempStr, lenCounstries)) {
                countries[lenCounstries].getData(tempStr);
-               sortCountriesByAlphabet(countries);
+               sortCountriesByAlphabet(countries, lenCountries);
                clear();
                cout<<"[!] El país, se ha dado de alta en el registro\n\n";
             } else {
@@ -215,7 +215,7 @@ int main() {
          cout<<"[!] No hay registros\n\n";
       }
 
-      if (digitMenu<0 || digitMenu>9) {
+      if (digitMenu<1 || 9<digitMenu) {
          clear();
          cout<<"[!] Número fuera del rango, vuelva a intentarlo\n\n";
       }
