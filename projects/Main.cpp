@@ -148,7 +148,7 @@ int main() {
 
             if (checkIfOptionInArray(countries, "Country", tempStr, lenCounstries)) {
                indexCountry = getIndexOfCountryInArray(countries, tempStr, lenCounstries);
-               countries[indexCountry].showCountryData();
+               countries[indexCountry].showData();
             } else {
                cout<<"[!] El nombre ingresado, no está en el registro\n\n";
             }
@@ -163,7 +163,7 @@ int main() {
             if (checkIfOptionInArray(countries, "Continent", tempStr, lenCounstries)) {
                lenIndices = getIndicesOfOptionInArray(countries, indices, "Continent", tempStr, lenCounstries);
                for (int i=0; i<lenIndices; i++) {
-                  countries[indices[i]].showCountryData();
+                  countries[indices[i]].showData();
                }
             } else {
                cout<<"[!] El nombre ingresado, no está en el registro\n\n";
@@ -179,7 +179,7 @@ int main() {
             if (checkIfOptionInArray(countries, "Currency", tempStr, lenCounstries)) {
                lenIndices = getIndicesOfOptionInArray(countries, indices, "Currency", tempStr, lenCounstries);
                for (int i=0; i<lenIndices; i++) {
-                  countries[indices[i]].showCountryData();
+                  countries[indices[i]].showData();
                }
             } else {
                cout<<"[!] El tipo ingresado, no está en el registro\n\n";
@@ -195,7 +195,7 @@ int main() {
             if (checkIfOptionInArray(countries, "Language", tempStr, lenCounstries)) {
                lenIndices = getIndicesOfOptionInArray(countries, indices, "Language", tempStr, lenCounstries);
                for (int i=0; i<lenIndices; i++) {
-                  countries[indices[i]].showCountryData();
+                  countries[indices[i]].showData();
                }
             } else {
                cout<<"[!] El tipo ingresado, no está en el registro\n\n";
@@ -207,7 +207,7 @@ int main() {
             cout<<"# Mostrar todos los registros\n\n";
             for (int i=0; i<SIZE; i++) {
                if (countries[i].getName() != "\0") {
-                  countries[i].showCountryData();
+                  countries[i].showData();
                }
             }
          }
