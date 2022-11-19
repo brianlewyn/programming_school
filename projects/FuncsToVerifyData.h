@@ -28,11 +28,11 @@ bool checkAsNumber(string temp) {
 }
 
 // Prompt until user responds with an integer
-int intRequest(string prompt) {
+int intRequest(string message) {
    int answer;
    string temp;
    do {
-      cout<<prompt;
+      cout<<message;
       getline(cin, temp);
 
       if (checkAsNumber(temp)) {
