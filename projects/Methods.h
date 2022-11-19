@@ -57,26 +57,16 @@ Country::Country(string _name, string _capital, string _continent, string _langu
 }
 
 // Methods for data
-void Country::getData(string nameCountry) {
-   string temp;
-   this->name = nameCountry;
-
+void Country::getData(string _name) {
+   this->name = _name;
    cout<<"Capital: ";
-   getline(cin, temp);
-   this->capital = temp;
-
+   getline(cin, this->capital);
    cout<<"Continente: ";
-   getline(cin, temp);
-   this->continent = temp;
-
+   getline(cin, this->continent);
    cout<<"Idioma: ";
-   getline(cin, temp);
-   this->language = temp;
-
+   getline(cin, this->language);
    cout<<"Moneda: ";
-   getline(cin, temp);
-   this->currency = temp;
-
+   getline(cin, this->currency);
    this->population = intRequest("Población: ");
    cout<<endl;
 }
