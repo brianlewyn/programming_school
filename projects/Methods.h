@@ -3,10 +3,10 @@
 
 #include <iostream>
 #include <string>
-#include "FuncsForMethods.h"
+#include "FuncsToVerifyData.h"
 using namespace std;
 
-// Private methods
+// Format method
 string Country::getFormatPopulation() {
    int len=0, cont=0;
    string reverse, temp = to_string(population);
@@ -62,7 +62,7 @@ Country::Country(string _name, string _capital, string _continent, string _langu
    this->population = _population;
 }
 
-// Other methods
+// Methods for data
 void Country::getData(string nameCountry) {
    string temp;
    this->name = nameCountry;
@@ -106,7 +106,7 @@ void Country::resetData() {
    this->population = 0;
 }
 
-// set methods
+// Set methods
 void Country::setCapital(string nameCapital) {
    this->capital = nameCapital;
 }
@@ -123,7 +123,7 @@ void Country::setPopulation(int numPopulation) {
    this->population = numPopulation;
 }
 
-// get methods
+// Get methods
 string Country::getName() {
    return this->name;
 }

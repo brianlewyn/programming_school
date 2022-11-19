@@ -5,8 +5,8 @@ using namespace std;
 int main() {
    Country countries[SIZE];
    string tempStr, tempStr2;
-   int tempInt, index, lenIndices, indices[SIZE]={}; 
-   int len, digitMenu, digitSubMenu;
+   int tempInt, digitMenu, digitSubMenu;
+   int indexCountry, lenCounstries, lenIndices, indices[SIZE]={}; 
 
    clear();
    do {
@@ -26,18 +26,18 @@ int main() {
       clear();
 
       // Check how many countries are there?
-      len = lenArray(countries);
+      lenCounstries = lenArray(countries);
 
       // Add Country
       if (digitMenu==1) {
-         if (len<SIZE) {
+         if (lenCounstries<SIZE) {
             cout<<"# Alta de país";
             cout<<"\nNombre del país: ";
             getline(cin, tempStr);
 
-            if (!checkIfOptionInArray(countries, "Country", tempStr, len)) {
-               countries[len].getData(tempStr);
-               sortCountryByAlphabet(countries);
+            if (!checkIfOptionInArray(countries, "Country", tempStr, lenCounstries)) {
+               countries[lenCounstries].getData(tempStr);
+               sortCountriesByAlphabet(countries);
                clear();
                cout<<"[!] El país, se ha dado de alta en el registro\n\n";
             } else {
@@ -50,9 +50,9 @@ int main() {
       }
 
       // Again, count how many countries there are in case there are new ones.
-      len = lenArray(countries);
+      lenCounstries = lenArray(countries);
 
-      if (len!=0) {
+      if (lenCounstries!=0) {
 
          // Edit Country
          if (digitMenu==2) {
@@ -60,8 +60,8 @@ int main() {
             cout<<"Ingrese el nombre del país: ";
             getline(cin, tempStr); clear();
 
-            if (checkIfOptionInArray(countries, "Country", tempStr, len)) {
-               index = getIndexOfCountryInArray(countries, tempStr, len);
+            if (checkIfOptionInArray(countries, "Country", tempStr, lenCounstries)) {
+               indexCountry = getIndexOfCountryInArray(countries, tempStr, lenCounstries);
 
                do {
                   // Secondary menu
@@ -81,34 +81,34 @@ int main() {
                      case 1:
                         cout<<"Ingrese el nuevo nombre de la capital:\n";
                         getline(cin, tempStr2);
-                        countries[index].setCapital(tempStr2);
+                        countries[indexCountry].setCapital(tempStr2);
                         clear();
                         cout<<"Se ha modificado la capital\n\n";
                         break;
                      case 2:
                         cout<<"Ingrese el nuevo nombre del continente:\n";
                         getline(cin, tempStr2);
-                        countries[index].setContinent(tempStr2);
+                        countries[indexCountry].setContinent(tempStr2);
                         clear();
                         cout<<"Se ha modificado el continente\n\n";
                         break;
                      case 3:
                         cout<<"Ingrese el nuevo nombre del idioma:\n";
                         getline(cin, tempStr2);
-                        countries[index].setLanguage(tempStr2);
+                        countries[indexCountry].setLanguage(tempStr2);
                         clear();
                         cout<<"Se ha modificado el idioma\n\n";
                         break;
                      case 4:
                         cout<<"Ingrese el nuevo tipo de moneda:\n";
                         getline(cin, tempStr2);
-                        countries[index].setCurrency(tempStr2);
+                        countries[indexCountry].setCurrency(tempStr2);
                         clear();
                         cout<<"Se ha modificado la moneda\n\n";
                         break;
                      default:
                         tempInt = intRequest("Ingrese el nuevo total de la población:\n");
-                        countries[index].setPopulation(tempInt);
+                        countries[indexCountry].setPopulation(tempInt);
                         clear();
                         cout<<"Se ha modificado la población\n\n";
                         break;
@@ -130,10 +130,10 @@ int main() {
             cout<<"Ingrese el nombre del país: ";
             getline(cin, tempStr); clear();
 
-            if (checkIfOptionInArray(countries, "Country", tempStr, len)) {
-               index = getIndexOfCountryInArray(countries, tempStr, len);
-               countries[index].resetData();
-               removeCountryInArray(countries, len);
+            if (checkIfOptionInArray(countries, "Country", tempStr, lenCounstries)) {
+               indexCountry = getIndexOfCountryInArray(countries, tempStr, lenCounstries);
+               countries[indexCountry].resetData();
+               removeCountryInArray(countries, lenCounstries);
                cout<<"País eliminado del registro\n\n";
             } else {
                cout<<"[!] El nombre ingresado, no está en el registro\n\n";
@@ -146,9 +146,9 @@ int main() {
             cout<<"Ingrese el nombre del país: ";
             getline(cin, tempStr); clear();
 
-            if (checkIfOptionInArray(countries, "Country", tempStr, len)) {
-               index = getIndexOfCountryInArray(countries, tempStr, len);
-               countries[index].showCountryData();
+            if (checkIfOptionInArray(countries, "Country", tempStr, lenCounstries)) {
+               indexCountry = getIndexOfCountryInArray(countries, tempStr, lenCounstries);
+               countries[indexCountry].showCountryData();
             } else {
                cout<<"[!] El nombre ingresado, no está en el registro\n\n";
             }
@@ -160,8 +160,8 @@ int main() {
             cout<<"Ingrese el nombre del continente: ";
             getline(cin, tempStr); clear();
 
-            if (checkIfOptionInArray(countries, "Continent", tempStr, len)) {
-               lenIndices = getIndicesOfOptionInArray(countries, indices, "Continent", tempStr, len);
+            if (checkIfOptionInArray(countries, "Continent", tempStr, lenCounstries)) {
+               lenIndices = getIndicesOfOptionInArray(countries, indices, "Continent", tempStr, lenCounstries);
                for (int i=0; i<lenIndices; i++) {
                   countries[indices[i]].showCountryData();
                }
@@ -176,8 +176,8 @@ int main() {
             cout<<"Ingrese el tipo de moneda: ";
             getline(cin, tempStr); clear();
 
-            if (checkIfOptionInArray(countries, "Currency", tempStr, len)) {
-               lenIndices = getIndicesOfOptionInArray(countries, indices, "Currency", tempStr, len);
+            if (checkIfOptionInArray(countries, "Currency", tempStr, lenCounstries)) {
+               lenIndices = getIndicesOfOptionInArray(countries, indices, "Currency", tempStr, lenCounstries);
                for (int i=0; i<lenIndices; i++) {
                   countries[indices[i]].showCountryData();
                }
@@ -192,8 +192,8 @@ int main() {
             cout<<"Ingrese el tipo de idioma: ";
             getline(cin, tempStr); clear();
 
-            if (checkIfOptionInArray(countries, "Language", tempStr, len)) {
-               lenIndices = getIndicesOfOptionInArray(countries, indices, "Language", tempStr, len);
+            if (checkIfOptionInArray(countries, "Language", tempStr, lenCounstries)) {
+               lenIndices = getIndicesOfOptionInArray(countries, indices, "Language", tempStr, lenCounstries);
                for (int i=0; i<lenIndices; i++) {
                   countries[indices[i]].showCountryData();
                }

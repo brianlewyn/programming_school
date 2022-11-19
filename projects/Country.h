@@ -8,6 +8,8 @@ class Country {
    private:
       string name, capital, continent, language, currency;
       int population;
+
+      // Format method
       string getFormatPopulation();
 
    public:
@@ -17,19 +19,19 @@ class Country {
       // Constructor
       Country(string, string, string, string, string, int);
 
-      // another methods
+      // Methods for data
       void getData(string);
       void showCountryData();
       void resetData();
 
-      // set methods
+      // Set methods
       void setCapital(string);
       void setContinent(string);
       void setLanguage(string);
       void setCurrency(string);
       void setPopulation(int);
 
-      // get methods
+      // Get methods
       string getName();
       string getCapital();
       string getContinent();

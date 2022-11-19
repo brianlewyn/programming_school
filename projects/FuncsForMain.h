@@ -6,18 +6,19 @@
 
 const int SIZE = 50;
 
-// Other funcs
+// Funcs Prototype 
+// Screen cleaning method
 void clear();
 
 // Funcs for an array of objects
-int lenArray(Country countries[SIZE]);
-void sortCountryByAlphabet(Country countries[SIZE]);
-void removeCountryInArray(Country countries[SIZE], int len);
-int getIndexOfCountryInArray(Country countries[SIZE], string temp, int len);
+int lenArray(Country);
+void sortCountriesByAlphabet(Country);
+void removeCountryInArray(Country, int);
+int getIndexOfCountryInArray(Country, string, int);
 
 // Funcs for attributes [array of objects]
-bool checkIfOptionInArray(Country countries[SIZE], string option, string temp, int len);
-int getIndicesOfOptionInArray(Country countries[SIZE], int setIndex[SIZE], string option, string temp, int len);
+bool checkIfOptionInArray(Country, string, string, int);
+int getIndicesOfOptionInArray(Country, int, string, string, int);
 
 // Screen cleaning method
 void clear() {
@@ -35,7 +36,7 @@ int lenArray(Country countries[SIZE]) {
 }
 
 // Sort countries by alphabet in a vector
-void sortCountryByAlphabet(Country countries[SIZE]) {
+void sortCountriesByAlphabet(Country countries[SIZE]) {
    Country temp;
    for (int i=0; i<SIZE; i++) {
       for (int j=0; j<SIZE; j++) {

@@ -1,5 +1,5 @@
-#ifndef _FuncsForMethods_H_
-#define _FuncsForMethods_H_
+#ifndef _FuncsToVerifyData_H_
+#define _FuncsToVerifyData_H_
 
 #include <iostream>
 #include "Country.h"
