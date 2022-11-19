@@ -38,7 +38,7 @@ int intRequest(string prompt) {
       if (checkAsNumber(temp)) {
          answer = stoi(temp);
       } else {
-         cout<<"\n[!] Debe ser número\n";
+         cout<<"\n[!] Debe ser un número entero\n";
       }
    } while(!checkAsNumber(temp));
    return answer;
