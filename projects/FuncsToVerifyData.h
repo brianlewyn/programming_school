@@ -12,7 +12,7 @@ int intRequest(string);
 // Length of a string
 int lenStr(string temp) {
    int len;
-   for (len=0; temp[len]!='\0'; len++);
+   for (len=0; temp[len]!='\0'; len++){}
    return len;
 }
 
