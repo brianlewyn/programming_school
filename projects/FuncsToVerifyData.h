@@ -18,10 +18,10 @@ int lenStr(string temp) {
 
 // Check that the answer is a number
 bool checkAsNumber(string temp) {
-   bool answer=false;
+   bool answer=true;
    for (int i=0; i<lenStr(temp); i++) {
-      if (48<=temp[i] && temp[i]<=57) {
-         answer = true;
+      if (!(48<=temp[i] && temp[i]<=57)) {
+         answer = false;
       }
    }
    return answer;
