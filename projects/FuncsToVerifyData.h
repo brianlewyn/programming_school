@@ -1,6 +1,5 @@
-#ifndef _FuncsToVerifyData_H_
-#define _FuncsToVerifyData_H_
-
+#ifndef FuncsToVerifyData_H
+#define FuncsToVerifyData_H
 #include <iostream>
 #include "Country.h"
 using namespace std;

@@ -1,5 +1,5 @@
-#ifndef _Methods_H_
-#define _Methods_H_
+#ifndef Methods_H
+#define Methods_H
 
 #include <iostream>
 #include <string>
@@ -8,11 +8,11 @@ using namespace std;
 
 // Format method
 string Country::getFormatPopulation() {
-   int len=0, cont=0;
+   int len, cont=0;
    string reverse, temp = to_string(population);
 
    // Length
-   for (len; temp[len]!='\0'; len++);
+   for (len=0; temp[len]!='\0'; len++){}
 
    // Reverse number
    for (int i=len; i>=0; i--) {

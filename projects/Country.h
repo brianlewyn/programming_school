@@ -1,6 +1,5 @@
-#ifndef _Country_H_
-#define _Country_H_
-
+#ifndef Country_H
+#define Country_H
 #include <iostream>
 using namespace std;
 

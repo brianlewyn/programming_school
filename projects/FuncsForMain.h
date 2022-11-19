@@ -1,5 +1,5 @@
-#ifndef _FuncsForMain_H_
-#define _FuncsForMain_H_
+#ifndef FuncsForMain_H
+#define FuncsForMain_H
 
 #include <cstdlib>
 #include "Methods.h"
