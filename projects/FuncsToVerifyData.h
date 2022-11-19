@@ -6,9 +6,9 @@
 using namespace std;
 
 // Funcs to verify that the data is correct
-int lenStr(string temp);
-bool checkAsNumber(string temp);
-int intRequest(string ask);
+int lenStr(string);
+bool checkAsNumber(string);
+int intRequest(string);
 
 // Length of a string
 int lenStr(string temp) {
