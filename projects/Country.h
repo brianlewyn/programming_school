@@ -20,7 +20,7 @@ class Country {
 
       // Methods for data
       void getData(string);
-      void showCountryData();
+      void showData();
       void resetData();
 
       // Set methods
