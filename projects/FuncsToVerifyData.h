@@ -19,12 +19,16 @@ int lenStr(string temp) {
 // Check that the answer is a number
 bool checkAsNumber(string temp) {
    bool answer=true;
-   for (int i=0; i<lenStr(temp); i++) {
-      if (!(48<=temp[i] && temp[i]<=57)) {
-         answer = false;
+   int len = lenStr(temp);
+   if (len!=0) {
+      for (int i=0; i<len; i++) {
+         if (!(48<=temp[i] && temp[i]<=57)) {
+            answer = false;
+         }
       }
+      return answer;
    }
-   return answer;
+   return false;
 }
 
 // Prompt until user responds with an integer
