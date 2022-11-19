@@ -1,6 +1,5 @@
 #ifndef Methods_H
 #define Methods_H
-
 #include <iostream>
 #include <string>
 #include "FuncsToVerifyData.h"
@@ -44,11 +43,6 @@ string Country::getFormatPopulation() {
 
 // Default
 Country::Country() {
-   this->name = "";
-   this->capital = "";
-   this->continent = "";
-   this->language = "";
-   this->currency = "";
    this->population = 0;
 }
 
@@ -87,13 +81,13 @@ void Country::getData(string nameCountry) {
    cout<<endl;
 }
 
-void Country::showCountryData() {
+void Country::showData() {
    cout<<"# "<<name;
    cout<<"\nCapital: "<<capital;
    cout<<"\nContinente: "<<continent;
    cout<<"\nIdioma: "<<language;
    cout<<"\nMoneda: "<<currency;
-   cout<<"\nPoblación total: ";
+   cout<<"\nPoblación: ";
    cout<<getFormatPopulation()<<"\n\n";
 }
 
@@ -107,20 +101,20 @@ void Country::resetData() {
 }
 
 // Set methods
-void Country::setCapital(string nameCapital) {
-   this->capital = nameCapital;
+void Country::setCapital(string _capital) {
+   this->capital = _capital;
 }
-void Country::setContinent(string nameContinent) {
-   this->continent = nameContinent;
+void Country::setContinent(string _continent) {
+   this->continent = _continent;
 }
-void Country::setLanguage(string nameLanguage) {
-   this->language = nameLanguage;
+void Country::setLanguage(string _language) {
+   this->language = _language;
 }
-void Country::setCurrency(string nameCurrency) {
-   this->currency = nameCurrency;
+void Country::setCurrency(string _currency) {
+   this->currency = _currency;
 }
-void Country::setPopulation(int numPopulation) {
-   this->population = numPopulation;
+void Country::setPopulation(int _population) {
+   this->population = _population;
 }
 
 // Get methods
