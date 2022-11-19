@@ -1,6 +1,5 @@
 #ifndef FuncsForMain_H
 #define FuncsForMain_H
-
 #include <cstdlib>
 #include "Methods.h"
 
@@ -29,7 +28,7 @@ void clear() {
 int lenArray(Country countries[SIZE]) {
    int cont=0;
    for (int i=0; i<SIZE; i++) {
-      if (!(countries[i].getName()=="\0"))
+      if (!(countries[i].getName()==""))
          cont++;
    }
    return cont;
@@ -40,7 +39,7 @@ void sortCountriesByAlphabet(Country countries[SIZE]) {
    Country temp;
    for (int i=0; i<SIZE; i++) {
       for (int j=0; j<SIZE; j++) {
-         if (countries[i].getName() != "\0" && countries[j].getName() != "\0") {
+         if (countries[i].getName() != "" && countries[j].getName() != "") {
             if (countries[i].getName() < countries[j].getName()) {
                temp = countries[j];
                countries[j] = countries[i];
@@ -58,7 +57,7 @@ void removeCountryInArray(Country countries[SIZE], int len) {
 
    // Save all countries in the aux vector except it was removed
    for (int i=0; i<len; i++) {
-      if (countries[i].getName() != "\0") {
+      if (countries[i].getName() != "") {
          aux[cont] = countries[i];
          cont++;
       }
@@ -85,11 +84,12 @@ int getIndexOfCountryInArray(Country countries[SIZE], string temp, int len) {
 
 // Check if (country, continent, currency or language) is in the array
 bool checkIfOptionInArray(Country countries[SIZE], string option, string temp, int len) {
+   bool answer=false;
    for (int i=0; i<len; i++) {
-      if (option=="Country" && countries[i].getName()==temp)
-         return true;
+      if (option=="Name" && countries[i].getName()==temp)
+         answer = true;
       if (option=="Continent" && countries[i].getContinent() ==temp)
-         return true;
+         answer = true;
       if (option=="Currency" && countries[i].getCurrency()==temp)
          return true;
       if (option=="Language" && countries[i].getLanguage()==temp)
