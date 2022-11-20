@@ -11,7 +11,7 @@ void clear();
 
 // Funcs for an array of objects
 int lenArray(Country);
-void sortCountriesByAlphabet(Country);
+void sortCountriesByAlphabet(Country, int);
 void removeCountryInArray(Country, int);
 int getIndexOfCountryInArray(Country, string, int);
 
@@ -28,23 +28,21 @@ void clear() {
 int lenArray(Country countries[SIZE]) {
    int cont=0;
    for (int i=0; i<SIZE; i++) {
-      if (!(countries[i].getName()==""))
+      if (countries[i].getName()!="")
          cont++;
    }
    return cont;
 }
 
 // Sort countries by alphabet in a vector
-void sortCountriesByAlphabet(Country countries[SIZE]) {
+void sortCountriesByAlphabet(Country countries[SIZE], int len) {
    Country temp;
-   for (int i=0; i<SIZE; i++) {
-      for (int j=0; j<SIZE; j++) {
-         if (countries[i].getName() != "" && countries[j].getName() != "") {
-            if (countries[i].getName() < countries[j].getName()) {
-               temp = countries[j];
-               countries[j] = countries[i];
-               countries[i] = temp;
-            }
+   for (int i=0; i<len; i++) {
+      for (int j=0; j<len; j++) {
+         if (countries[i].getName() < countries[j].getName()) {
+            temp = countries[j];
+            countries[j] = countries[i];
+            countries[i] = temp;
          }
       }
    }
@@ -88,14 +86,14 @@ bool checkIfOptionInArray(Country countries[SIZE], string option, string temp, i
    for (int i=0; i<len; i++) {
       if (option=="Name" && countries[i].getName()==temp)
          answer = true;
-      if (option=="Continent" && countries[i].getContinent() ==temp)
+      if (option=="Continent" && countries[i].getContinent()==temp)
          answer = true;
       if (option=="Currency" && countries[i].getCurrency()==temp)
-         return true;
+         answer = true;
       if (option=="Language" && countries[i].getLanguage()==temp)
-         return true;
+         answer = true;
    }
-   return false;
+   return answer;
 }
 
 // Get the set of indices of the (continent, currency or language) attribute in the vector
