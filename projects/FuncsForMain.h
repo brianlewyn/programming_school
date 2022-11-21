@@ -15,7 +15,7 @@ const string LANGUAGE = "Language";
 // Funcs Prototype
 // Other funcs, not so special
 void clear();
-void showMainMenu();
+void showMenu();
 void showSubMenu(string);
 
 // Funcs for Array Objects
@@ -34,7 +34,7 @@ void clear() {
 }
 
 // Show main menu
-void showMainMenu() {
+void showMenu() {
    cout<<"Menú [Países]:\n";
    cout<<"1. Alta de país\n";
    cout<<"2. Modificación de alguna característica del país\n";
