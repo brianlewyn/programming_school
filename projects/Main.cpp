@@ -10,7 +10,7 @@ int main() {
 
    clear();
    do {
-      showMainMenu();
+      showMenu();
 
       message = "Digite el número de opción: ";
       requestInt(message, digitMenu);
