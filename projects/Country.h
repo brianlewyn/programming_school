@@ -8,9 +8,6 @@ class Country {
       string name, capital, continent, language, currency;
       int population;
 
-      // Format method
-      string getFormatPopulation();
-
    public:
       // Default
       Country();

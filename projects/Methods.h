@@ -5,44 +5,13 @@
 #include "FuncsToVerifyData.h"
 using namespace std;
 
-// Format method
-string Country::getFormatPopulation() {
-   int len, cont=0;
-   string reverse, temp = to_string(population);
-
-   // Length
-   for (len=0; temp[len]!='\0'; len++){}
-
-   // Reverse number
-   for (int i=len; i>=0; i--) {
-      reverse += temp[i];
-   }
-
-   // Reverse number with format
-   temp = "";
-   for (int i=0; i<=len; i++) {
-      if (i%3==0 && i!=0) {
-         temp += reverse[i];
-         if (i!=0 && i!=len) {
-            temp += ",";
-         }
-         cont++;
-      } else {
-         temp += reverse[i];
-      }
-   }
-
-   // Again, reverse number with format
-   reverse = "";
-   for (int i=len+cont; i>=0; i--) {
-      reverse += temp[i];
-   }
-
-   return reverse;
-}
-
 // Default
 Country::Country() {
+   this->name = "";
+   this->capital = "";
+   this->continent = "";
+   this->language = "";
+   this->currency = "";
    this->population = 0;
 }
 
@@ -58,16 +27,18 @@ Country::Country(string _name, string _capital, string _continent, string _langu
 
 // Methods for data
 void Country::getData(string _name) {
+   string message;
    this->name = _name;
-   cout<<"Capital: ";
-   getline(cin, this->capital);
-   cout<<"Continente: ";
-   getline(cin, this->continent);
-   cout<<"Idioma: ";
-   getline(cin, this->language);
-   cout<<"Moneda: ";
-   getline(cin, this->currency);
-   this->population = intRequest("Población: ");
+   message = "Capital: ";
+   requestStr(message, this->capital);
+   message = "Continente: ";
+   requestStr(message, this->continent);
+   message = "Idioma: ";
+   requestStr(message, this->language);
+   message = "Moneda: ";
+   requestStr(message, this->currency);
+   message = "Población: ";
+   requestInt(message, this->population);
    cout<<endl;
 }
 
@@ -78,7 +49,7 @@ void Country::showData() {
    cout<<"\nIdioma: "<<language;
    cout<<"\nMoneda: "<<currency;
    cout<<"\nPoblación: ";
-   cout<<getFormatPopulation()<<"\n\n";
+   cout<<formatNumber(population)<<"\n\n";
 }
 
 void Country::resetData() {

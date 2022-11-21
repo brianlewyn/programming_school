@@ -3,38 +3,72 @@
 #include <cstdlib>
 #include "Methods.h"
 
+// Object Array Size
 const int SIZE = 50;
 
-// Funcs Prototype 
-// Screen cleaning method
-void clear();
+// Option Type to use as Func
+const string NAME = "name";
+const string CONTINENT = "continet";
+const string CURRENCY = "currency";
+const string LANGUAGE = "Language";
 
-// Funcs for an array of objects
+// Funcs Prototype
+// Other funcs, not so special
+void clear();
+void showMainMenu();
+void showSubMenu(string);
+
+// Funcs for Array Objects
 int lenArray(Country);
 void sortCountriesByAlphabet(Country, int);
 void removeCountryInArray(Country, int);
 int getIndexOfCountryInArray(Country, string, int);
 
-// Funcs for attributes [array of objects]
+// Funcs for specific data from Array Objects
 bool checkIfOptionInArray(Country, string, string, int);
 int getIndicesOfOptionInArray(Country, int, string, string, int);
 
-// Screen cleaning method
+// Screen cleaning func
 void clear() {
    system("clear || cls");
 }
 
-// Get the length of a vector
+// Show main menu
+void showMainMenu() {
+   cout<<"Menú [Países]:\n";
+   cout<<"1. Alta de país\n";
+   cout<<"2. Modificación de alguna característica del país\n";
+   cout<<"3. Eliminación de país\n";
+   cout<<"4. Consulta específica de algún país\n";
+   cout<<"5. Consulta de los países de algún continente\n";
+   cout<<"6. Consulta de los países de algún tipo de moneda\n";
+   cout<<"7. Consulta de los países de algún tipo de idioma\n";
+   cout<<"8. Mostrar todos los registros\n";
+   cout<<"9. Salir\n\n";
+}
+
+// Show sub menu
+void showSubMenu(string name) {
+   cout<<"SubMenú ["<<name<<"]:\n";
+   cout<<"1. Capital\n";
+   cout<<"2. Continente\n";
+   cout<<"3. Idioma\n";
+   cout<<"4. Moneda\n";
+   cout<<"5. Población\n";
+   cout<<"6. Salir\n\n";
+}
+
+// Get the length of Array Objects
 int lenArray(Country countries[SIZE]) {
    int cont=0;
    for (int i=0; i<SIZE; i++) {
-      if (countries[i].getName()!="")
+      if (countries[i].getName() != "")
          cont++;
    }
    return cont;
 }
 
-// Sort countries by alphabet in a vector
+// Sort countries by alphabet in Array Objects
 void sortCountriesByAlphabet(Country countries[SIZE], int len) {
    Country temp;
    for (int i=0; i<len; i++) {
@@ -48,12 +82,12 @@ void sortCountriesByAlphabet(Country countries[SIZE], int len) {
    }
 }
 
-// Remove a country from the vector
+// Remove a country from Array Objects
 void removeCountryInArray(Country countries[SIZE], int len) {
    Country aux[len];
    int cont=0;
 
-   // Save all countries in the aux vector except it was removed
+   // Save all countries in the aux array except it was removed
    for (int i=0; i<len; i++) {
       if (countries[i].getName() != "") {
          aux[cont] = countries[i];
@@ -61,7 +95,7 @@ void removeCountryInArray(Country countries[SIZE], int len) {
       }
    }
 
-   // Empty the aux vector into the countries vector, and the last one, delete it
+   // Empty the aux array into the countries array, and the last one, delete it
    for (int i=0; i<=len; i++) {
       if (i<len) {
          countries[i] = aux[i];
@@ -71,7 +105,7 @@ void removeCountryInArray(Country countries[SIZE], int len) {
    }
 }
 
-// Get the index of the continent attribute in the vector
+// Get the index of the continent attribute in Array Objects
 int getIndexOfCountryInArray(Country countries[SIZE], string temp, int len) {
    for (int i=0; i<len; i++) {
       if (countries[i].getName() == temp)
@@ -84,31 +118,31 @@ int getIndexOfCountryInArray(Country countries[SIZE], string temp, int len) {
 bool checkIfOptionInArray(Country countries[SIZE], string option, string temp, int len) {
    bool answer=false;
    for (int i=0; i<len; i++) {
-      if (option=="Name" && countries[i].getName()==temp)
+      if (option==NAME && countries[i].getName()==temp)
          answer = true;
-      if (option=="Continent" && countries[i].getContinent()==temp)
+      if (option==CONTINENT && countries[i].getContinent()==temp)
          answer = true;
-      if (option=="Currency" && countries[i].getCurrency()==temp)
+      if (option==CURRENCY && countries[i].getCurrency()==temp)
          answer = true;
-      if (option=="Language" && countries[i].getLanguage()==temp)
+      if (option==LANGUAGE && countries[i].getLanguage()==temp)
          answer = true;
    }
    return answer;
 }
 
-// Get the set of indices of the (continent, currency or language) attribute in the vector
+// Get indices of the (continent, currency or language) attribute in the vector
 int getIndicesOfOptionInArray(Country countries[SIZE], int setIndex[SIZE], string option, string temp, int len) {
    int lenIndices=0;
    for (int i=0; i<len; i++) {
-      if (option=="Continent" && countries[i].getContinent()==temp) {
+      if (option==CONTINENT && countries[i].getContinent()==temp) {
          setIndex[lenIndices] = i;
          lenIndices++;
       }
-      if (option=="Currency" && countries[i].getCurrency()==temp) {
+      if (option==CURRENCY && countries[i].getCurrency()==temp) {
          setIndex[lenIndices] = i;
          lenIndices++;
       }
-      if (option=="Language" && countries[i].getLanguage()==temp) {
+      if (option==LANGUAGE && countries[i].getLanguage()==temp) {
          setIndex[lenIndices] = i;
          lenIndices++;
       }
