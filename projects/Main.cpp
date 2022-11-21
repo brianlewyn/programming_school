@@ -62,46 +62,45 @@ int main() {
                   requestInt(message, digitSubMenu);
                   clear();
 
-                  if (0<digitSubMenu && digitSubMenu<6) {
-                     switch (digitSubMenu){
-                     case 1:
-                        message = "Ingrese el nuevo nombre de la capital:\n";
-                        requestStr(message, tempStr2);
-                        countries[indexCountry].setCapital(tempStr2);
-                        clear();
-                        cout<<"[+] Se ha modificado la capital\n\n";
-                        break;
-                     case 2:
-                        message = "Ingrese el nuevo nombre del continente:\n";
-                        requestStr(message, tempStr2);
-                        countries[indexCountry].setContinent(tempStr2);
-                        clear();
-                        cout<<"[+] Se ha modificado el continente\n\n";
-                        break;
-                     case 3:
-                        message = "Ingrese el nuevo nombre del idioma:\n";
-                        requestStr(message, tempStr2);
-                        countries[indexCountry].setLanguage(tempStr2);
-                        clear();
-                        message = "[+] Se ha modificado el idioma\n\n";
-                        break;
-                     case 4:
-                        message = "Ingrese el nuevo nombre del tipo de moneda:\n";
-                        requestStr(message, tempStr2);
-                        countries[indexCountry].setCurrency(tempStr2);
-                        clear();
-                        cout<<"[+] Se ha modificado la moneda\n\n";
-                        break;
-                     default:
-                        message = "Ingrese el nuevo número de población:\n";
-                        requestInt(message, tempInt);
-                        countries[indexCountry].setPopulation(tempInt);
-                        clear();
-                        cout<<"[+] Se ha modificado la población\n\n";
-                        break;
-                     }
-                  } else {
+                  switch (digitSubMenu){
+                  case 1:
+                     message = "Ingrese el nuevo nombre de la capital:\n";
+                     requestStr(message, tempStr2);
+                     countries[indexCountry].setCapital(tempStr2);
+                     clear();
+                     cout<<"[+] Se ha modificado la capital\n\n";
+                     break;
+                  case 2:
+                     message = "Ingrese el nuevo nombre del continente:\n";
+                     requestStr(message, tempStr2);
+                     countries[indexCountry].setContinent(tempStr2);
+                     clear();
+                     cout<<"[+] Se ha modificado el continente\n\n";
+                     break;
+                  case 3:
+                     message = "Ingrese el nuevo nombre del idioma:\n";
+                     requestStr(message, tempStr2);
+                     countries[indexCountry].setLanguage(tempStr2);
+                     clear();
+                     message = "[+] Se ha modificado el idioma\n\n";
+                     break;
+                  case 4:
+                     message = "Ingrese el nuevo nombre del tipo de moneda:\n";
+                     requestStr(message, tempStr2);
+                     countries[indexCountry].setCurrency(tempStr2);
+                     clear();
+                     cout<<"[+] Se ha modificado la moneda\n\n";
+                     break;
+                  case 5:
+                     message = "Ingrese el nuevo número de población:\n";
+                     requestInt(message, tempInt);
+                     countries[indexCountry].setPopulation(tempInt);
+                     clear();
+                     cout<<"[+] Se ha modificado la población\n\n";
+                     break;
+                  default:
                      cout<<"[!] Número fuera del rango, vuelva a intentarlo\n\n";
+                     break;
                   }
                } while (digitSubMenu!=6);
                clear();
