@@ -97,11 +97,7 @@ void removeCountryInArray(Country countries[SIZE], int len) {
 
    // Empty the aux array into the countries array, and the last one, delete it
    for (int i=0; i<len; i++) {
-      if (i<len-1) {
-         countries[i] = aux[i];
-      } else {
-         countries[i].resetData();
-      }
+      countries[i] = aux[i];
    }
 }
 
