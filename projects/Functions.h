@@ -13,7 +13,7 @@ const short CURRENCY = 3;
 const short LANGUAGE = 4;
 
 // Funcs Prototype
-// Other funcs, not so special
+// Funcs to clear screen and show menus
 void clear();
 void showMenu();
 void showSubMenu(string);
@@ -137,4 +137,5 @@ void showAllCoincidenceInArray(Country countries[SIZE], short option, string tem
          countries[i].showData();
    }
 }
+
 #endif

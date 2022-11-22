@@ -4,6 +4,20 @@
 #include "Country.h"
 using namespace std;
 
+// Array Continents
+const string CONTINENTS[6] = {
+   "América", 
+   "Europa", 
+   "Asia", 
+   "África", 
+   "Oceanía", 
+   "La Antártida"
+};
+
+// Funcs Prototype
+// Funcs to show continents
+void showContinents();
+
 // Funcs to verify that the data is correct
 int lenStr(string);
 void trim(string&);
@@ -12,7 +26,22 @@ bool checkAsStr(string);
 void requestInt(string, short &);
 void requestInt(string, long &);
 void requestStr(string, string &);
+void requestIndexContinet(string, int &);
+
+// Func to format a number with commas
 string formatNumber (long);
+
+// Show continents
+void showContinents() {
+   cout<<"Contientes:";
+   cout<<"\n1. "<<CONTINENTS[0];
+   cout<<"\n2. "<<CONTINENTS[1];
+   cout<<"\n3. "<<CONTINENTS[2];
+   cout<<"\n4. "<<CONTINENTS[3];
+   cout<<"\n5. "<<CONTINENTS[4];
+   cout<<"\n6. "<<CONTINENTS[5];
+   cout<<endl<<endl;
+}
 
 // Length of a string
 int lenStr(string temp) {
@@ -92,7 +121,7 @@ bool checkAsStr(string temp) {
    return false;
 }
 
-// Prompt until the user responds with a one-digit integer
+// Prompt until user responds with a one-digit integer
 void requestInt(string message, short &answer) {
    string temp;
    bool flag, cond1, cond2;
@@ -166,6 +195,42 @@ void requestStr(string message, string &answer) {
    } while(flag);
 
    answer = temp;
+}
+
+// Prompt until user responds with an index of the continents in the array
+void requestIndexContinet(string message, int &index) {
+   string temp;
+   bool flag, cond1, cond2;
+
+   do {
+      cout<<message;
+      getline(cin, temp);
+      trim(temp);
+
+      flag = false;
+      cond1 = checkAsInt(temp);
+      cond2 = lenStr(temp)!=1;
+
+      if (!cond1 || cond2) {
+         flag = true;
+         cout<<endl;
+
+         if (!cond1) {
+            cout<<"[!] Debe ser un número entero positivo\n";
+         }
+         if (cond2) {
+            cout<<"[!] El número debe ser de un digito\n";
+         }
+      }
+      if (cond1) {
+         if (stoi(temp) < 0 || 6 < stoi(temp)) {
+            cout<<"[!] Número fuera del rango\n";
+            flag = true;
+         }
+      }
+   } while(flag);
+
+   index = stoi(temp) - 1;
 }
 
 // Format a number with commas

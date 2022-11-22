@@ -1,18 +1,17 @@
 #include <iostream>
-#include "FuncsForMain.h"
+#include "Functions.h"
 using namespace std;
 
 int main() {
    Country countries[SIZE];
    string message, tempStr, tempStr2;
-   int i, indexCountry, lenCounstries;
+   int i, indexContinent, indexCountry, lenCounstries;
    short digitMenu, digitSubMenu;
    long tempInt;
 
    clear();
    do {
       showMenu();
-
       message = "Digite el número de opción: ";
       requestInt(message, digitMenu);
       clear();
@@ -58,7 +57,6 @@ int main() {
 
                do {
                   showSubMenu(tempStr);
-
                   message = "Digite el número de opción: ";
                   requestInt(message, digitSubMenu);
                   clear();
@@ -72,9 +70,10 @@ int main() {
                      cout<<"[+] Se ha modificado la capital\n\n";
                      break;
                   case 2:
-                     message = "Ingrese el nuevo nombre del continente:\n";
-                     requestStr(message, tempStr2);
-                     countries[indexCountry].setContinent(tempStr2);
+                     showContinents();
+                     message = "Digite el número de opción: ";
+                     requestIndexContinet(message, indexContinent);
+                     countries[indexCountry].setContinent(CONTINENTS[indexContinent]);
                      clear();
                      cout<<"[+] Se ha modificado el continente\n\n";
                      break;

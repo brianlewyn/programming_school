@@ -27,17 +27,25 @@ Country::Country(string _name, string _capital, string _continent, string _langu
 
 // Methods for data
 void Country::getData(string _name) {
+   int indexContinent;
    string message;
+
    this->name = _name;
    message = "Capital: ";
    requestStr(message, this->capital);
+
+   showContinents();
    message = "Continente: ";
-   requestStr(message, this->continent);
+   requestIndexContinet(message, indexContinent);
+   this->continent = CONTINENTS[indexContinent];
+
    message = "Idioma: ";
    requestStr(message, this->language);
+
    message = "Tipo de Moneda: ";
    requestStr(message, this->currency);
-   message = "Población: ";
+
+   message = "Número de Población: ";
    requestInt(message, this->population);
    cout<<endl;
 }
