@@ -7,10 +7,10 @@
 const int SIZE = 50;
 
 // Option Type to use as Func
-const unsigned short NAME = 1;
-const unsigned short CONTINENT = 2;
-const unsigned short CURRENCY = 3;
-const unsigned short LANGUAGE = 4;
+const short NAME = 1;
+const short CONTINENT = 2;
+const short CURRENCY = 3;
+const short LANGUAGE = 4;
 
 // Funcs Prototype
 // Other funcs, not so special
@@ -25,8 +25,8 @@ void removeCountryInArray(Country, int);
 int getIndexOfCountryInArray(Country, string, int);
 
 // Funcs for specific data from Array Objects
-bool checkIfTempInArray(Country, unsigned short, string, int);
-void showAllCoincidenceInArray(Country, unsigned short, string, int);
+bool checkIfTempInArray(Country, short, string, int);
+void showAllCoincidenceInArray(Country, short, string, int);
 
 // Screen cleaning func
 void clear() {
@@ -111,7 +111,7 @@ int getIndexOfCountryInArray(Country countries[SIZE], string temp, int len) {
 }
 
 // Check if temp (country, continent, currency or language) is in the array
-bool checkIfTempInArray(Country countries[SIZE], unsigned short option, string temp, int len) {
+bool checkIfTempInArray(Country countries[SIZE], short option, string temp, int len) {
    bool answer=false;
    for (int i=0; i<len; i++) {
       if (option==NAME && countries[i].getName()==temp)
@@ -127,7 +127,7 @@ bool checkIfTempInArray(Country countries[SIZE], unsigned short option, string t
 }
 
 // Get indices of the (continent, currency or language) attribute in the vector
-void showAllCoincidenceInArray(Country countries[SIZE], unsigned short option, string temp, int len) {
+void showAllCoincidenceInArray(Country countries[SIZE], short option, string temp, int len) {
    for (int i=0; i<len; i++) {
       if (option==CONTINENT && countries[i].getContinent()==temp)
          countries[i].showData();
