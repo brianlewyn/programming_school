@@ -6,14 +6,14 @@ using namespace std;
 class Country {
    private:
       string name, capital, continent, language, currency;
-      int population;
+      long population;
 
    public:
       // Default
       Country();
 
       // Constructor
-      Country(string, string, string, string, string, int);
+      Country(string, string, string, string, string, long);
 
       // Methods for data
       void getData(string);
@@ -25,7 +25,7 @@ class Country {
       void setContinent(string);
       void setLanguage(string);
       void setCurrency(string);
-      void setPopulation(int);
+      void setPopulation(long);
 
       // Get methods
       string getName();
@@ -33,6 +33,7 @@ class Country {
       string getContinent();
       string getLanguage();
       string getCurrency();
-      int getPopulation();
+      long getPopulation();
 };
+
 #endif

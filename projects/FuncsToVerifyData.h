@@ -8,10 +8,11 @@ using namespace std;
 int lenStr(string);
 void trim(string&);
 bool checkAsInt(string);
-void requestInt(string, int&);
 bool checkAsStr(string);
-void requestStr(string, string&);
-string formatNumber(int);
+void requestInt(string, short &);
+void requestInt(string, long &);
+void requestStr(string, string &);
+string formatNumber (long);
 
 // Length of a string
 int lenStr(string temp) {
@@ -64,30 +65,6 @@ bool checkAsInt(string temp) {
    return false;
 }
 
-// Prompt until user responds with an integer
-void requestInt(string message, int &answer) {
-   string temp;
-   bool flag;
-
-   do {
-      flag = false;
-      cout<<message;
-      getline(cin, temp);
-      trim(temp);
-
-      if (!checkAsInt(temp)) {
-         cout<<"\n[!] Debe ser un número entero\n";
-         flag = true;
-      }
-      if (9<lenStr(temp)) {
-         cout<<"\n[!] El número máximo es de 9 digitos\n";
-         flag = true;
-      }
-   } while(flag);
-
-   answer = stoi(temp);
-}
-
 // Check that the answer is an string using letters of the alphabet
 bool checkAsStr(string temp) {
    bool abc, answer=true;
@@ -115,6 +92,62 @@ bool checkAsStr(string temp) {
    return false;
 }
 
+// Prompt until the user responds with a one-digit integer
+void requestInt(string message, short &answer) {
+   string temp;
+   bool flag, cond1, cond2;
+
+   do {
+      cout<<message;
+      getline(cin, temp);
+      trim(temp);
+
+      flag = false;
+      cond1 = checkAsInt(temp);
+      cond2 = lenStr(temp)!=1;
+
+      if (!cond1 || cond2) {
+         flag = true;
+         cout<<endl;
+
+         if (!cond1)
+            cout<<"[!] Debe ser un número entero positivo\n";
+         if (cond2)
+            cout<<"[!] El número debe ser de un digito\n";
+      }
+   } while(flag);
+
+   answer = stoi(temp);
+}
+
+// Prompt until user responds with an integer
+void requestInt(string message, long &answer) {
+   string temp;
+   bool flag, cond1, cond2;
+
+   do {
+      cout<<message;
+      getline(cin, temp);
+      trim(temp);
+
+      flag = false;
+      cond1 = checkAsInt(temp);
+      cond2 = 18<lenStr(temp);
+
+      if (!cond1 || cond2) {
+         flag = true;
+         cout<<endl;
+
+         if (!cond1)
+            cout<<"[!] Debe ser un número entero positivo\n";
+         if (cond2)
+            cout<<"[!] El número máximo es de 18 digitos\n";
+      }
+   } while(flag);
+
+   answer = stol(temp);
+}
+
 // Prompt until user responds with a name using letters of the alphabet
 void requestStr(string message, string &answer) {
    string temp;
@@ -136,7 +169,7 @@ void requestStr(string message, string &answer) {
 }
 
 // Format a number with commas
-string formatNumber(int number) {
+string formatNumber(long number) {
    string reverse="", temp=to_string(number);
    int i, cont=0, len=lenStr(temp);
 
@@ -167,4 +200,5 @@ string formatNumber(int number) {
 
    return reverse;
 }
+
 #endif

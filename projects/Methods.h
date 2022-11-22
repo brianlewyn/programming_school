@@ -16,7 +16,7 @@ Country::Country() {
 }
 
 // Constructor
-Country::Country(string _name, string _capital, string _continent, string _language, string _currency, int _population) {
+Country::Country(string _name, string _capital, string _continent, string _language, string _currency, long _population) {
    this->name = _name;
    this->capital = _capital;
    this->continent = _continent;
@@ -75,7 +75,7 @@ void Country::setLanguage(string _language) {
 void Country::setCurrency(string _currency) {
    this->currency = _currency;
 }
-void Country::setPopulation(int _population) {
+void Country::setPopulation(long _population) {
    this->population = _population;
 }
 
@@ -95,7 +95,8 @@ string Country::getLanguage() {
 string Country::getCurrency() {
    return this->currency;
 }
-int Country::getPopulation() {
+long Country::getPopulation() {
    return this->population;
 }
+
 #endif

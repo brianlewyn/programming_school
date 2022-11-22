@@ -5,8 +5,9 @@ using namespace std;
 int main() {
    Country countries[SIZE];
    string message, tempStr, tempStr2;
-   int tempInt, digitMenu, digitSubMenu;
    int i, indexCountry, lenCounstries;
+   short digitMenu, digitSubMenu;
+   long tempInt;
 
    clear();
    do {
