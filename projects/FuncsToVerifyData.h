@@ -2,6 +2,7 @@
 #define FuncsToVerifyData_H
 #include "Country.h"
 #include <iostream>
+#include <cctype>
 using namespace std;
 
 // Array Continents
@@ -186,6 +187,8 @@ void requestStr(string message, string &answer) {
       }
    } while(flag);
 
+   if (temp[0] < 65 || 90 < temp[0])
+      temp[0] = toupper(temp[0]);
    answer = temp;
 }
 
