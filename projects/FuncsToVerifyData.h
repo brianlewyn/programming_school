@@ -79,8 +79,8 @@ void requestInt(string message, int &answer) {
          cout<<"\n[!] Debe ser un número entero\n";
          flag = true;
       }
-      if (10<lenStr(temp)) {
-         cout<<"\n[!] El número máximo es de 10 digitos\n";
+      if (9<lenStr(temp)) {
+         cout<<"\n[!] El número máximo es de 9 digitos\n";
          flag = true;
       }
    } while(flag);
