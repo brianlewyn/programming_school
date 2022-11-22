@@ -23,10 +23,10 @@ int lenStr(string temp) {
 // Removes all leading and trailing blank space from the string.
 void trim(string &temp) {
    string newStr="";
-   int start=0, end=0, len=lenStr(temp);
+   int i, start=0, end=0, len=lenStr(temp);
 
    // Sentence Start
-   for (int i=0; i<len; i++) {
+   for (i=0; i<len; i++) {
       if (temp[i]!=' ') {
          start = i;
          break;
@@ -34,7 +34,7 @@ void trim(string &temp) {
    }
 
    // Sentence End
-   for (int i=len-1; i>=0; i--) {
+   for (i=len-1; i>=0; i--) {
       if (temp[i]!=' ') {
          end = i;
          break;
@@ -42,7 +42,7 @@ void trim(string &temp) {
    }
 
    // Build Sentence
-   for (int i=start; i<=end; i++) {
+   for (i=start; i<=end; i++) {
       newStr += temp[i];
    }
    temp = newStr;
@@ -55,9 +55,8 @@ bool checkAsInt(string temp) {
 
    if (len!=0) {
       for (int i=0; i<len; i++) {
-         if (!(48<=temp[i] && temp[i]<=57)) {
+         if (temp[i]<48 || 57<temp[i])
             answer = false;
-         }
       }
       return answer;
    }
@@ -78,6 +77,10 @@ void requestInt(string message, int &answer) {
 
       if (!checkAsInt(temp)) {
          cout<<"\n[!] Debe ser un número entero\n";
+         flag = true;
+      }
+      if (10<lenStr(temp)) {
+         cout<<"\n[!] El número máximo es de 10 digitos\n";
          flag = true;
       }
    } while(flag);
@@ -104,9 +107,8 @@ bool checkAsStr(string temp) {
          abc = abc || l==-102 || l==-70; // Úú
          abc = abc || l==-111 || l==-79; // Ññ
 
-         if (!abc) {
+         if (!abc)
             answer = false;
-         }
       }
       return answer;
    }
@@ -135,25 +137,22 @@ void requestStr(string message, string &answer) {
 
 // Format a number with commas
 string formatNumber(int number) {
-   int len, cont=0;
-   string reverse, temp=to_string(number);
-
-   // Length
-   for (len=0; temp[len]!='\0'; len++){}
+   string reverse="", temp=to_string(number);
+   int i, cont=0, len=lenStr(temp);
 
    // Reverse number
-   for (int i=len; i>=0; i--) {
+   for (i=len-1; i>=0; i--) {
       reverse += temp[i];
    }
 
    // Reverse number with format
    temp = "";
-   for (int i=0; i<=len; i++) {
-      if (i%3==0 && i!=0) {
+   for (i=0; i<len; i++) {
+      if (i!=0 && (i+1)%3==0) {
          temp += reverse[i];
-         if (i!=0 && i!=len) {
-            temp += ",";
-         }
+
+         if (i!=len-1)
+            temp += ',';
          cont++;
       } else {
          temp += reverse[i];
@@ -162,7 +161,7 @@ string formatNumber(int number) {
 
    // Again, reverse number with format
    reverse = "";
-   for (int i=len+cont; i>=0; i--) {
+   for (i=len+cont; i>=0; i--) {
       reverse += temp[i];
    }
 

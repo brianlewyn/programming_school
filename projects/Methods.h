@@ -35,7 +35,7 @@ void Country::getData(string _name) {
    requestStr(message, this->continent);
    message = "Idioma: ";
    requestStr(message, this->language);
-   message = "Moneda: ";
+   message = "Tipo de Moneda: ";
    requestStr(message, this->currency);
    message = "Población: ";
    requestInt(message, this->population);
@@ -49,7 +49,8 @@ void Country::showData() {
    cout<<"\nIdioma: "<<language;
    cout<<"\nMoneda: "<<currency;
    cout<<"\nPoblación: ";
-   cout<<formatNumber(population)<<"\n\n";
+   cout<<formatNumber(population);
+   cout<<" habitantes\n\n";
 }
 
 void Country::resetData() {

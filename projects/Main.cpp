@@ -5,8 +5,8 @@ using namespace std;
 int main() {
    Country countries[SIZE];
    string message, tempStr, tempStr2;
-   int i, tempInt, digitMenu, digitSubMenu;
-   int indexCountry, lenCounstries, lenIndices, indices[SIZE]={};
+   int tempInt, digitMenu, digitSubMenu;
+   int i, indexCountry, lenCounstries;
 
    clear();
    do {
@@ -26,7 +26,7 @@ int main() {
             message = "Nombre del país: ";
             requestStr(message, tempStr);
 
-            if (!checkIfOptionInArray(countries, NAME, tempStr, lenCounstries)) {
+            if (!checkIfTempInArray(countries, NAME, tempStr, lenCounstries)) {
                countries[lenCounstries].getData(tempStr);
                sortCountriesByAlphabet(countries, lenCounstries+1);
                clear();
@@ -52,7 +52,7 @@ int main() {
             requestStr(message, tempStr);
             clear();
 
-            if (checkIfOptionInArray(countries, NAME, tempStr, lenCounstries)) {
+            if (checkIfTempInArray(countries, NAME, tempStr, lenCounstries)) {
                indexCountry = getIndexOfCountryInArray(countries, tempStr, lenCounstries);
 
                do {
@@ -98,6 +98,9 @@ int main() {
                      clear();
                      cout<<"[+] Se ha modificado la población\n\n";
                      break;
+                  case 6:
+                     // Get out of the loop
+                     break;
                   default:
                      cout<<"[!] Número fuera del rango, vuelva a intentarlo\n\n";
                      break;
@@ -117,7 +120,7 @@ int main() {
             requestStr(message, tempStr);
             clear();
 
-            if (checkIfOptionInArray(countries, NAME, tempStr, lenCounstries)) {
+            if (checkIfTempInArray(countries, NAME, tempStr, lenCounstries)) {
                indexCountry = getIndexOfCountryInArray(countries, tempStr, lenCounstries);
                countries[indexCountry].resetData();
                removeCountryInArray(countries, lenCounstries);
@@ -134,7 +137,7 @@ int main() {
             requestStr(message, tempStr);
             clear();
 
-            if (checkIfOptionInArray(countries, NAME, tempStr, lenCounstries)) {
+            if (checkIfTempInArray(countries, NAME, tempStr, lenCounstries)) {
                indexCountry = getIndexOfCountryInArray(countries, tempStr, lenCounstries);
                countries[indexCountry].showData();
             } else {
@@ -149,11 +152,8 @@ int main() {
             requestStr(message, tempStr);
             clear();
 
-            if (checkIfOptionInArray(countries, CONTINENT, tempStr, lenCounstries)) {
-               lenIndices = getIndicesOfOptionInArray(countries, indices, CONTINENT, tempStr, lenCounstries);
-               for (i=0; i<lenIndices; i++) {
-                  countries[indices[i]].showData();
-               }
+            if (checkIfTempInArray(countries, CONTINENT, tempStr, lenCounstries)) {
+               showAllCoincidenceInArray(countries, CONTINENT, tempStr, lenCounstries);
             } else {
                cout<<"[!] El nombre ingresado, no está en el registro\n\n";
             }
@@ -166,11 +166,8 @@ int main() {
             requestStr(message, tempStr);
             clear();
 
-            if (checkIfOptionInArray(countries, CURRENCY, tempStr, lenCounstries)) {
-               lenIndices = getIndicesOfOptionInArray(countries, indices, CURRENCY, tempStr, lenCounstries);
-               for (i=0; i<lenIndices; i++) {
-                  countries[indices[i]].showData();
-               }
+            if (checkIfTempInArray(countries, CURRENCY, tempStr, lenCounstries)) {
+               showAllCoincidenceInArray(countries, CURRENCY, tempStr, lenCounstries);
             } else {
                cout<<"[!] El tipo ingresado, no está en el registro\n\n";
             }
@@ -183,11 +180,8 @@ int main() {
             requestStr(message, tempStr);
             clear();
 
-            if (checkIfOptionInArray(countries, LANGUAGE, tempStr, lenCounstries)) {
-               lenIndices = getIndicesOfOptionInArray(countries, indices, LANGUAGE, tempStr, lenCounstries);
-               for (i=0; i<lenIndices; i++) {
-                  countries[indices[i]].showData();
-               }
+            if (checkIfTempInArray(countries, LANGUAGE, tempStr, lenCounstries)) {
+               showAllCoincidenceInArray(countries, LANGUAGE, tempStr, lenCounstries);
             } else {
                cout<<"[!] El tipo ingresado, no está en el registro\n\n";
             }
