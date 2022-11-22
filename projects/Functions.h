@@ -1,7 +1,7 @@
-#ifndef FuncsForMain_H
-#define FuncsForMain_H
-#include <cstdlib>
+#ifndef Functions_H
+#define Functions_H
 #include "Methods.h"
+#include <cstdlib>
 
 // Object Array Size
 const int SIZE = 50;
@@ -41,8 +41,8 @@ void showMenu() {
    cout<<"3. Eliminación de país\n";
    cout<<"4. Consulta específica de algún país\n";
    cout<<"5. Consulta de los países de algún continente\n";
-   cout<<"6. Consulta de los países de algún tipo de moneda\n";
-   cout<<"7. Consulta de los países de algún tipo de idioma\n";
+   cout<<"6. Consulta de los países de algún tipo de idioma\n";
+   cout<<"7. Consulta de los países de algún tipo de moneda\n";
    cout<<"8. Mostrar todos los registros\n";
    cout<<"9. Salir\n\n";
 }

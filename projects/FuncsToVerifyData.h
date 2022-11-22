@@ -1,7 +1,7 @@
 #ifndef FuncsToVerifyData_H
 #define FuncsToVerifyData_H
-#include <iostream>
 #include "Country.h"
+#include <iostream>
 using namespace std;
 
 // Array Continents
@@ -124,7 +124,7 @@ bool checkAsStr(string temp) {
 // Prompt until user responds with a one-digit integer
 void requestInt(string message, short &answer) {
    string temp;
-   bool flag, cond1, cond2;
+   bool flag;
 
    do {
       cout<<message;
@@ -132,17 +132,9 @@ void requestInt(string message, short &answer) {
       trim(temp);
 
       flag = false;
-      cond1 = checkAsInt(temp);
-      cond2 = lenStr(temp)!=1;
-
-      if (!cond1 || cond2) {
+      if (!checkAsInt(temp)){
+         cout<<"\n[!] Debe ser un entero positivo\n";
          flag = true;
-         cout<<endl;
-
-         if (!cond1)
-            cout<<"[!] Debe ser un número entero positivo\n";
-         if (cond2)
-            cout<<"[!] El número debe ser de un digito\n";
       }
    } while(flag);
 
@@ -168,7 +160,7 @@ void requestInt(string message, long &answer) {
          cout<<endl;
 
          if (!cond1)
-            cout<<"[!] Debe ser un número entero positivo\n";
+            cout<<"[!] Debe ser un entero positivo\n";
          if (cond2)
             cout<<"[!] El número máximo es de 18 digitos\n";
       }
@@ -209,22 +201,15 @@ void requestIndexContinet(string message, int &index) {
 
       flag = false;
       cond1 = checkAsInt(temp);
-      cond2 = lenStr(temp)!=1;
+      cond2 = lenStr(temp)<9;
 
-      if (!cond1 || cond2) {
-         flag = true;
-         cout<<endl;
-
-         if (!cond1) {
-            cout<<"[!] Debe ser un número entero positivo\n";
-         }
-         if (cond2) {
-            cout<<"[!] El número debe ser de un digito\n";
-         }
+      if (!cond1) {
+         flag=true;
+         cout<<"\n[!] Debe ser un entero positivo\n";
       }
-      if (cond1) {
+      if (cond1 && cond2) {
          if (stoi(temp) < 0 || 6 < stoi(temp)) {
-            cout<<"[!] Número fuera del rango\n";
+            cout<<"\n[!] Número fuera del rango\n";
             flag = true;
          }
       }

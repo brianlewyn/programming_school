@@ -1,8 +1,8 @@
 #ifndef Methods_H
 #define Methods_H
+#include "FuncsToVerifyData.h"
 #include <iostream>
 #include <string>
-#include "FuncsToVerifyData.h"
 using namespace std;
 
 // Default
