@@ -187,8 +187,8 @@ void requestStr(string message, string &answer) {
       }
    } while(flag);
 
-   if (temp[0] < 65 || 90 < temp[0])
-      temp[0] = toupper(temp[0]);
+   // Always convert first letter to uppercase
+   temp[0] = toupper(temp[0]);
    answer = temp;
 }
 
