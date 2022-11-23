@@ -184,8 +184,8 @@ void CountriesSameCurrency(Country countries[SZ], int len) {
    requestStr(message, currency);
    clear();
 
-   if (checkIfTempInArray(countries, CURRENCY, currency, len)) {
-      showAllCoincidenceInArray(countries, CURRENCY, currency, len);
+   if (checkIfTempInArray(countries, CURRENCY2, currency, len)) {
+      showAllCoincidenceInArray(countries, CURRENCY2, currency, len);
    } else {
       cout<<"[!] El tipo ingresado, no está en el registro\n";
    }

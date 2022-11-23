@@ -70,7 +70,7 @@ bool continueAction() {
 
    do {
       flag=false;
-      cout<<"[#] Deseas continuar con está opción (s/n)? ";
+      cout<<"[#] Deseas continuar con la misma opción (s/n)? ";
       getline(cin, temp);
       trim(temp);
 
@@ -97,7 +97,7 @@ bool continueAction(int len, bool option) {
 
    do {
       flag=false;
-      cout<<"[#] Deseas continuar con está opción (s/n)? ";
+      cout<<"[#] Deseas continuar con la misma opción (s/n)? ";
       getline(cin, temp);
       trim(temp);
 
