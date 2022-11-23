@@ -122,10 +122,10 @@ bool checkAsStr(string temp) {
    return false;
 }
 
-// Prompt until user responds with a one-digit integer
+// Prompt until user responds with one or two digit integer
 void requestInt(string message, short &answer) {
    string temp;
-   bool flag;
+   bool flag, cond1, cond2;
 
    do {
       cout<<message;
@@ -133,9 +133,18 @@ void requestInt(string message, short &answer) {
       trim(temp);
 
       flag = false;
-      if (!checkAsInt(temp)){
+      cond1 = checkAsInt(temp);
+      cond2 = lenStr(temp)<=2;
+
+      if (!cond1) {
+         flag=true;
          cout<<"\n[!] Debe ser un entero positivo\n";
-         flag = true;
+      }
+      if (cond1 && cond2) {
+         if (stoi(temp)==0 || 10<stoi(temp)) {
+            cout<<"\n[!] Número fuera del rango\n";
+            flag = true;
+         }
       }
    } while(flag);
 
@@ -211,7 +220,7 @@ void requestIndexContinet(string message, int &index) {
          cout<<"\n[!] Debe ser un entero positivo\n";
       }
       if (cond1 && cond2) {
-         if (stoi(temp) < 0 || 6 < stoi(temp)) {
+         if (stoi(temp)==0 || 6<stoi(temp)) {
             cout<<"\n[!] Número fuera del rango\n";
             flag = true;
          }
@@ -237,9 +246,10 @@ string formatNumber(long number) {
       if (i!=0 && (i+1)%3==0) {
          temp += reverse[i];
 
-         if (i!=len-1)
+         if (i!=len-1) {
             temp += ',';
-         cont++;
+            cont++;
+         }
       } else {
          temp += reverse[i];
       }

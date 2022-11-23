@@ -5,7 +5,7 @@
 // Funcs Prototype (components)
 void AddCountry(Country, int);
 void EditCountry(Country, int);
-void RemoveCountry(Country, int);
+void DeleteCountry(Country, int);
 void SpecificCountry(Country, int);
 void CountriesSameContinent(Country, int);
 void CountriesSameLenguage(Country, int);
@@ -23,13 +23,13 @@ void AddCountry(Country countries[SIZE], int len) {
          countries[len].getData(name);
          sortCountriesByAlphabet(countries, len+1);
          clear();
-         cout<<"[+] El país se ha dado de alta en el registro\n\n";
+         cout<<"[+] El país se ha dado de alta en el registro\n";
       } else {
          clear();
-         cout<<"[!] El nombre ya está includo en el registro\n\n";
+         cout<<"[!] El nombre ya está includo en el registro\n";
       }
    } else {
-      cout<<"[!] Se han registrado "<<SIZE<<" países, ya no es posible continuar con está opción\n\n";
+      cout<<"[!] Se han registrado "<<SIZE<<" países, ya no es posible continuar con está opción\n";
    }
 }
 
@@ -59,7 +59,7 @@ void EditCountry(Country countries[SIZE], int len) {
             requestStr(message, temp);
             countries[indexCountry].setCapital(temp);
             clear();
-            cout<<"[+] Se ha modificado la capital\n\n";
+            cout<<"[+] Se ha modificado la capital\n";
             break;
          case 2:
             showContinents();
@@ -67,45 +67,45 @@ void EditCountry(Country countries[SIZE], int len) {
             requestIndexContinet(message, indexContinent);
             countries[indexCountry].setContinent(CONTINENTS[indexContinent]);
             clear();
-            cout<<"[+] Se ha modificado el continente\n\n";
+            cout<<"[+] Se ha modificado el continente\n";
             break;
          case 3:
             message = "Ingrese el nuevo nombre del idioma:\n";
             requestStr(message, temp);
             countries[indexCountry].setLanguage(temp);
             clear();
-            message = "[+] Se ha modificado el idioma\n\n";
+            message = "[+] Se ha modificado el idioma\n";
             break;
          case 4:
             message = "Ingrese el nuevo nombre del tipo de moneda:\n";
             requestStr(message, temp);
             countries[indexCountry].setCurrency(temp);
             clear();
-            cout<<"[+] Se ha modificado la moneda\n\n";
+            cout<<"[+] Se ha modificado la moneda\n";
             break;
          case 5:
             message = "Ingrese el nuevo número de población:\n";
             requestInt(message, population);
             countries[indexCountry].setPopulation(population);
             clear();
-            cout<<"[+] Se ha modificado la población\n\n";
+            cout<<"[+] Se ha modificado la población\n";
             break;
          case 6:
             // Get out of the loop
             break;
          default:
-            cout<<"[!] Número fuera del rango, vuelva a intentarlo\n\n";
+            cout<<"[!] Número fuera del rango, vuelva a intentarlo\n";
             break;
          }
       } while (digit!=6);
       clear();
 
    } else {
-      cout<<"[!] El nombre no está en el registro\n\n";
+      cout<<"[!] El nombre no está en el registro\n";
    }
 }
 
-void RemoveCountry(Country countries[SIZE], int len) {
+void DeleteCountry(Country countries[SIZE], int len) {
    string message, name;
    int indexCountry;
 
@@ -118,9 +118,9 @@ void RemoveCountry(Country countries[SIZE], int len) {
       indexCountry = getIndexOfCountryInArray(countries, name, len);
       countries[indexCountry].resetData();
       removeCountryInArray(countries, len);
-      cout<<"[+] País eliminado del registro\n\n";
+      cout<<"[+] País eliminado del registro\n";
    } else {
-      cout<<"[!] El nombre ingresado, no está en el registro\n\n";
+      cout<<"[!] El nombre ingresado, no está en el registro\n";
    }
 }
 
@@ -137,7 +137,7 @@ void SpecificCountry(Country countries[SIZE], int len) {
       indexCountry = getIndexOfCountryInArray(countries, name, len);
       countries[indexCountry].showData();
    } else {
-      cout<<"[!] El nombre ingresado, no está en el registro\n\n";
+      cout<<"[!] El nombre ingresado, no está en el registro\n";
    }
 }
 
@@ -155,7 +155,7 @@ void CountriesSameContinent(Country countries[SIZE], int len) {
    if (checkIfTempInArray(countries, CONTINENT, CONTINENTS[index], len)) {
       showAllCoincidenceInArray(countries, CONTINENT, CONTINENTS[index], len);
    } else {
-      cout<<"[!] No hay países registrados para tal continente\n\n";
+      cout<<"[!] No hay países registrados para tal continente\n";
    }
 }
 
@@ -171,7 +171,7 @@ void CountriesSameLenguage(Country countries[SIZE], int len) {
    if (checkIfTempInArray(countries, LANGUAGE, lenguage, len)) {
       showAllCoincidenceInArray(countries, LANGUAGE, lenguage, len);
    } else {
-      cout<<"[!] El tipo ingresado, no está en el registro\n\n";
+      cout<<"[!] El tipo ingresado, no está en el registro\n";
    }
 }
 
@@ -187,7 +187,7 @@ void CountriesSameCurrency(Country countries[SIZE], int len) {
    if (checkIfTempInArray(countries, CURRENCY, currency, len)) {
       showAllCoincidenceInArray(countries, CURRENCY, currency, len);
    } else {
-      cout<<"[!] El tipo ingresado, no está en el registro\n\n";
+      cout<<"[!] El tipo ingresado, no está en el registro\n";
    }
 }
 

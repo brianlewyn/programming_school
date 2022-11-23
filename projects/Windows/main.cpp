@@ -25,35 +25,55 @@ int main() {
 
       // Add Country
       if (digit==1) {
-         AddCountry(countries, lenCounstries);
+         do {
+            AddCountry(countries, lenCounstries);
 
-         // One was added. Again, check how many countries are there?
-         lenCounstries = lenArray(countries);
+            // One was added. Again, check how many countries are there?
+            lenCounstries = lenArray(countries);
+         } while (continueAction(lenCounstries, ADD));
 
       } else if (lenCounstries!=0) {
          switch (digit) {
          case 2:
-            EditCountry(countries, lenCounstries);
+            do {
+               EditCountry(countries, lenCounstries);
+            } while (continueAction());
             break;
          case 3:
-            RemoveCountry(countries, lenCounstries);
+            do {
+               DeleteCountry(countries, lenCounstries);
+
+               // One was deleted. Again, check how many countries are there?
+               lenCounstries = lenArray(countries);
+            } while (continueAction(lenCounstries, DELETE));
             break;
          case 4:
-            SpecificCountry(countries, lenCounstries);
+            do {
+               SpecificCountry(countries, lenCounstries);
+            } while (continueAction());
             break;
          case 5:
-            CountriesSameContinent(countries, lenCounstries);
+            do {
+               CountriesSameContinent(countries, lenCounstries);
+            } while (continueAction());
             break;
          case 6:
-            CountriesSameLenguage(countries, lenCounstries);
+            do {
+               CountriesSameLenguage(countries, lenCounstries);
+            } while (continueAction());
             break;
          case 7:
-            CountriesSameCurrency(countries, lenCounstries);
+            do {
+               CountriesSameCurrency(countries, lenCounstries);
+            } while (continueAction());
             break;
          case 8:
             ShowAllCountriesSaved(countries, lenCounstries);
             break;
          case 9:
+            clear();
+            break;
+         case 10:
             // Get out of the loop
             break;
          default:
@@ -64,7 +84,7 @@ int main() {
       } else {
          cout<<"[!] No hay registros\n\n";
       }
-   } while (digit!=9);
+   } while (digit!=10);
 
    clear();
    return 0;

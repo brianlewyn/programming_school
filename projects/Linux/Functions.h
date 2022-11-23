@@ -4,19 +4,23 @@
 #include <cstdlib>
 
 // Object Array Size
-const int SIZE = 50;
+const int SIZE = 5;
 
 // Option Type to use as Func
 const short NAME = 1;
 const short CONTINENT = 2;
 const short CURRENCY = 3;
 const short LANGUAGE = 4;
+const bool ADD = true;
+const bool DELETE = false;
 
 // Funcs Prototype
-// Funcs to clear screen and show menus
+// Funcs to clear screen, show menus & continue an action
 void clear();
 void showMenu();
 void showSubMenu(string);
+bool continueAction();
+bool continueAction(int, bool);
 
 // Funcs for Array Objects
 int lenArray(Country);
@@ -44,7 +48,8 @@ void showMenu() {
    cout<<"6. Consulta de los países de algún tipo de idioma\n";
    cout<<"7. Consulta de los países de algún tipo de moneda\n";
    cout<<"8. Mostrar todos los registros\n";
-   cout<<"9. Salir\n\n";
+   cout<<"9. Limpiar pantalla\n";
+   cout<<"10. Salir\n\n";
 }
 
 // Show sub menu
@@ -56,6 +61,70 @@ void showSubMenu(string name) {
    cout<<"4. Moneda\n";
    cout<<"5. Población\n";
    cout<<"6. Salir\n\n";
+}
+
+// The func continue (general)
+bool continueAction() {
+   string temp;
+   bool flag, answer;
+
+   do {
+      flag=false;
+      cout<<"[#] Deseas continuar con está opción (s/n)? ";
+      getline(cin, temp);
+      trim(temp);
+
+      if (lenStr(temp)==1 && (temp=="s" || temp=="n" || temp=="S" || temp=="N")) {
+         flag = false;
+         if (temp=="s" || temp=="S")
+            answer = true;
+         if (temp=="n" || temp=="N")
+            answer = false;
+      } else {
+         cout<<"\n[!] Solo se admite una letra: s/n o S/N\n";
+         flag = true;
+      }
+   } while (flag);
+
+   clear();
+   return answer;
+}
+
+// The func continue (to AddCountry && DeleteCountry)
+bool continueAction(int len, bool option) {
+   string temp, msg="";
+   bool flag, answer;
+
+   do {
+      flag=false;
+      cout<<"[#] Deseas continuar con está opción (s/n)? ";
+      getline(cin, temp);
+      trim(temp);
+
+      if (lenStr(temp)==1 && (temp=="s" || temp=="n" || temp=="S" || temp=="N")) {
+         flag = false;
+         if (temp=="s" || temp=="S") {
+            if (0<len && len<SIZE){
+               answer = true;
+            } else {
+               answer = false;
+               if (len==SIZE && option==ADD)
+                  msg = "[!] Se han registrado "+to_string(SIZE)+" países, ya no es posible continuar con está opción\n\n";
+               if (len==0 && option==DELETE)
+                  msg = "[!] No hay registros\n\n";
+            }
+         }
+         if (temp=="n" || temp=="N")
+            answer = false;
+      } else {
+         cout<<"\n[!] Solo se admite una letra: s/n o S/N\n";
+         flag = true;
+      }
+   } while (flag);
+
+   clear();
+   cout<<msg;
+   return answer;
 }
 
 // Get the length of Array Objects
