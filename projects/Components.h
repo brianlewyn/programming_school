@@ -10,7 +10,7 @@ void SpecificCountry(Country, int);
 void CountriesSameContinent(Country, int);
 void CountriesSameLenguage(Country, int);
 void CountriesSameCurrency(Country, int);
-void ShowAllCountries(Country, int);
+void ShowAllCountriesSaved(Country, int);
 
 void AddCountry(Country countries[SIZE], int len) {
    string message, name;
@@ -192,7 +192,7 @@ void CountriesSameCurrency(Country countries[SIZE], int len) {
 }
 
 // Show all objects were saved
-void ShowAllCountries(Country countries[SIZE], int len) {
+void ShowAllCountriesSaved(Country countries[SIZE], int len) {
    cout<<"# Mostrar todos los registros\n\n";
    for (int i=0; i<len; i++) {
       countries[i].showData();
