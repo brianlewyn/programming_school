@@ -37,20 +37,16 @@ int main() {
             SpecificCountry(countries, lenCounstries);
             break;
          case 5:
-            // Countries of the same continent
             CountriesSameContinent(countries, lenCounstries);
             break;
          case 6:
-            // Countries with the same type of lenguage
             CountriesSameLenguage(countries, lenCounstries);
             break;
          case 7:
-            // Countries with the same type of currency
             CountriesSameCurrency(countries, lenCounstries);
             break;
          case 8:
-            // Show all objects were saved
-            ShowAllCountries(countries, lenCounstries);
+            ShowAllCountriesSaved(countries, lenCounstries);
             break;
          case 9:
             // Get out of the loop
