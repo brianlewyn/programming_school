@@ -1,9 +1,14 @@
 #include "Components.h"
 #include <iostream>
+#include <Windows.h>
 using namespace std;
 
 int main() {
-   Country countries[SIZE];
+   setlocale(LC_ALL, "Spanish");
+   SetConsoleCP(1252);  // Input: Spanish 
+   SetConsoleOutputCP(1252); // Output: Spanish
+
+   Country countries[SZ];
    string message;
    int lenCounstries;
    short digit;

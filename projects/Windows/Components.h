@@ -12,9 +12,9 @@ void CountriesSameLenguage(Country, int);
 void CountriesSameCurrency(Country, int);
 void ShowAllCountriesSaved(Country, int);
 
-void AddCountry(Country countries[SIZE], int len) {
+void AddCountry(Country countries[SZ], int len) {
    string message, name;
-   if (len<SIZE) {
+   if (len<SZ) {
       cout<<"# Alta de país\n";
       message = "Nombre del país: ";
       requestStr(message, name);
@@ -29,11 +29,11 @@ void AddCountry(Country countries[SIZE], int len) {
          cout<<"[!] El nombre ya está includo en el registro\n\n";
       }
    } else {
-      cout<<"[!] Se han registrado "<<SIZE<<" países, ya no es posible continuar con está opción\n\n";
+      cout<<"[!] Se han registrado "<<SZ<<" países, ya no es posible continuar con está opción\n\n";
    }
 }
 
-void EditCountry(Country countries[SIZE], int len) {
+void EditCountry(Country countries[SZ], int len) {
    string message, name, temp;
    int indexCountry, indexContinent;
    short digit;
@@ -105,7 +105,7 @@ void EditCountry(Country countries[SIZE], int len) {
    }
 }
 
-void RemoveCountry(Country countries[SIZE], int len) {
+void RemoveCountry(Country countries[SZ], int len) {
    string message, name;
    int indexCountry;
 
@@ -124,7 +124,7 @@ void RemoveCountry(Country countries[SIZE], int len) {
    }
 }
 
-void SpecificCountry(Country countries[SIZE], int len) {
+void SpecificCountry(Country countries[SZ], int len) {
    string message, name;
    int indexCountry;
 
@@ -142,7 +142,7 @@ void SpecificCountry(Country countries[SIZE], int len) {
 }
 
 // Countries of the same continent
-void CountriesSameContinent(Country countries[SIZE], int len) {
+void CountriesSameContinent(Country countries[SZ], int len) {
    string message;
    int index;
 
@@ -160,7 +160,7 @@ void CountriesSameContinent(Country countries[SIZE], int len) {
 }
 
 // Countries with the same type of lenguage
-void CountriesSameLenguage(Country countries[SIZE], int len) {
+void CountriesSameLenguage(Country countries[SZ], int len) {
    string message, lenguage;
 
    cout<<"# Consulta de los países de algún tipo de idioma\n";
@@ -176,7 +176,7 @@ void CountriesSameLenguage(Country countries[SIZE], int len) {
 }
 
 // Countries with the same type of currency
-void CountriesSameCurrency(Country countries[SIZE], int len) {
+void CountriesSameCurrency(Country countries[SZ], int len) {
    string message, currency;
 
    cout<<"# Consulta de los países de algún tipo de moneda\n";
@@ -184,15 +184,15 @@ void CountriesSameCurrency(Country countries[SIZE], int len) {
    requestStr(message, currency);
    clear();
 
-   if (checkIfTempInArray(countries, CURRENCY, currency, len)) {
-      showAllCoincidenceInArray(countries, CURRENCY, currency, len);
+   if (checkIfTempInArray(countries, CURRENCY2, currency, len)) {
+      showAllCoincidenceInArray(countries, CURRENCY2, currency, len);
    } else {
       cout<<"[!] El tipo ingresado, no está en el registro\n\n";
    }
 }
 
 // Show all objects were saved
-void ShowAllCountriesSaved(Country countries[SIZE], int len) {
+void ShowAllCountriesSaved(Country countries[SZ], int len) {
    cout<<"# Mostrar todos los registros\n\n";
    for (int i=0; i<len; i++) {
       countries[i].showData();

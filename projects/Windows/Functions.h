@@ -4,12 +4,12 @@
 #include <cstdlib>
 
 // Object Array Size
-const int SIZE = 50;
+const int SZ = 50;
 
 // Option Type to use as Func
 const short NAME = 1;
 const short CONTINENT = 2;
-const short CURRENCY = 3;
+const short CURRENCY2 = 3;
 const short LANGUAGE = 4;
 
 // Funcs Prototype
@@ -59,9 +59,9 @@ void showSubMenu(string name) {
 }
 
 // Get the length of Array Objects
-int lenArray(Country countries[SIZE]) {
+int lenArray(Country countries[SZ]) {
    int cont=0;
-   for (int i=0; i<SIZE; i++) {
+   for (int i=0; i<SZ; i++) {
       if (countries[i].getName() != "")
          cont++;
    }
@@ -69,7 +69,7 @@ int lenArray(Country countries[SIZE]) {
 }
 
 // Sort countries by alphabet in Array Objects
-void sortCountriesByAlphabet(Country countries[SIZE], int len) {
+void sortCountriesByAlphabet(Country countries[SZ], int len) {
    Country temp;
    for (int i=0; i<len; i++) {
       for (int j=0; j<len; j++) {
@@ -83,7 +83,7 @@ void sortCountriesByAlphabet(Country countries[SIZE], int len) {
 }
 
 // Remove a country from Array Objects
-void removeCountryInArray(Country countries[SIZE], int len) {
+void removeCountryInArray(Country countries[SZ], int len) {
    Country aux[len];
    int i, cont=0;
 
@@ -102,7 +102,7 @@ void removeCountryInArray(Country countries[SIZE], int len) {
 }
 
 // Get the index of the continent attribute in Array Objects
-int getIndexOfCountryInArray(Country countries[SIZE], string temp, int len) {
+int getIndexOfCountryInArray(Country countries[SZ], string temp, int len) {
    for (int i=0; i<len; i++) {
       if (countries[i].getName() == temp)
          return i;
@@ -111,14 +111,14 @@ int getIndexOfCountryInArray(Country countries[SIZE], string temp, int len) {
 }
 
 // Check if temp (country, continent, currency or language) is in the array
-bool checkIfTempInArray(Country countries[SIZE], short option, string temp, int len) {
+bool checkIfTempInArray(Country countries[SZ], short option, string temp, int len) {
    bool answer=false;
    for (int i=0; i<len; i++) {
       if (option==NAME && countries[i].getName()==temp)
          answer = true;
       if (option==CONTINENT && countries[i].getContinent()==temp)
          answer = true;
-      if (option==CURRENCY && countries[i].getCurrency()==temp)
+      if (option==CURRENCY2 && countries[i].getCurrency()==temp)
          answer = true;
       if (option==LANGUAGE && countries[i].getLanguage()==temp)
          answer = true;
@@ -127,11 +127,11 @@ bool checkIfTempInArray(Country countries[SIZE], short option, string temp, int 
 }
 
 // Get indices of the (continent, currency or language) attribute in the vector
-void showAllCoincidenceInArray(Country countries[SIZE], short option, string temp, int len) {
+void showAllCoincidenceInArray(Country countries[SZ], short option, string temp, int len) {
    for (int i=0; i<len; i++) {
       if (option==CONTINENT && countries[i].getContinent()==temp)
          countries[i].showData();
-      if (option==CURRENCY && countries[i].getCurrency()==temp)
+      if (option==CURRENCY2 && countries[i].getCurrency()==temp)
          countries[i].showData();
       if (option==LANGUAGE && countries[i].getLanguage()==temp)
          countries[i].showData();

@@ -7,11 +7,11 @@ using namespace std;
 
 // Array Continents
 const string CONTINENTS[6] = {
-   "América", 
-   "Europa", 
-   "Asia", 
-   "África", 
-   "Oceanía", 
+   "América",
+   "Europa",
+   "Asia",
+   "África",
+   "Oceanía",
    "La Antártida"
 };
 
@@ -106,13 +106,12 @@ bool checkAsStr(string temp) {
          abc = l==32; // Blankspace ASCII
          abc = abc || (65<=l && l<=90);   // Uppercase alphabet ASCII
          abc = abc || (97<=l && l<=122);  // Lowercase alphabet ASCII
-         abc = abc || l==-61; // NO ASCII
-         abc = abc || l==-127 || l==-95; // Áá
-         abc = abc || l==-119 || l==-87; // Éé
-         abc = abc || l==-115 || l==-83; // Íí
-         abc = abc || l==-109 || l==-77; // Óó
-         abc = abc || l==-102 || l==-70; // Úú
-         abc = abc || l==-111 || l==-79; // Ññ
+         abc = abc || l=='Á' || l=='á'; // Áá
+			abc = abc || l=='É' || l=='é'; // Éé
+			abc = abc || l=='Í' || l=='í'; // Íí
+			abc = abc || l=='Ó' || l=='ó'; // Óó
+			abc = abc || l=='Ú' || l=='ú'; // Úú
+			abc = abc || l=='Ñ' || l=='ñ'; // Ññ
 
          if (!abc)
             answer = false;
@@ -154,7 +153,7 @@ void requestInt(string message, long &answer) {
 
       flag = false;
       cond1 = checkAsInt(temp);
-      cond2 = 18<lenStr(temp);
+      cond2 = 9<lenStr(temp);
 
       if (!cond1 || cond2) {
          flag = true;
@@ -163,7 +162,7 @@ void requestInt(string message, long &answer) {
          if (!cond1)
             cout<<"[!] Debe ser un entero positivo\n";
          if (cond2)
-            cout<<"[!] El número máximo es de 18 digitos\n";
+            cout<<"[!] El número máximo es de 9 digitos\n";
       }
    } while(flag);
 
