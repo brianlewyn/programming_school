@@ -17,7 +17,7 @@ void AddCountry(Country countries[SIZE], int len) {
    if (len<SIZE) {
       cout<<"# Alta de país\n";
       message = "Nombre del país: ";
-      requestStr(message, name);
+      request(message, name);
 
       if (!checkIfTempInArray(countries, NAME, name, len)) {
          countries[len].getData(name);
@@ -41,7 +41,7 @@ void EditCountry(Country countries[SIZE], int len) {
 
    cout<<"# Modificación de alguna característica del país\n";
    message = "Ingrese el nombre del país: ";
-   requestStr(message, name);
+   request(message, name);
    clear();
 
    if (checkIfTempInArray(countries, NAME, name, len)) {
@@ -50,13 +50,13 @@ void EditCountry(Country countries[SIZE], int len) {
       do {
          showSubMenu(name);
          message = "Digite el número de opción: ";
-         requestInt(message, digit);
+         request(message, digit);
          clear();
 
          switch (digit){
          case 1:
             message = "Ingrese el nuevo nombre de la capital:\n";
-            requestStr(message, temp);
+            request(message, temp);
             countries[indexCountry].setCapital(temp);
             clear();
             cout<<"[+] Se ha modificado la capital\n";
@@ -71,21 +71,21 @@ void EditCountry(Country countries[SIZE], int len) {
             break;
          case 3:
             message = "Ingrese el nuevo nombre del idioma:\n";
-            requestStr(message, temp);
+            request(message, temp);
             countries[indexCountry].setLanguage(temp);
             clear();
             message = "[+] Se ha modificado el idioma\n";
             break;
          case 4:
             message = "Ingrese el nuevo nombre del tipo de moneda:\n";
-            requestStr(message, temp);
+            request(message, temp);
             countries[indexCountry].setCurrency(temp);
             clear();
             cout<<"[+] Se ha modificado la moneda\n";
             break;
          case 5:
             message = "Ingrese el nuevo número de población:\n";
-            requestInt(message, population);
+            request(message, population);
             countries[indexCountry].setPopulation(population);
             clear();
             cout<<"[+] Se ha modificado la población\n";
@@ -111,7 +111,7 @@ void DeleteCountry(Country countries[SIZE], int len) {
 
    cout<<"# Eliminación de país\n";
    message = "Ingrese el nombre del país: ";
-   requestStr(message, name);
+   request(message, name);
    clear();
 
    if (checkIfTempInArray(countries, NAME, name, len)) {
@@ -130,7 +130,7 @@ void SpecificCountry(Country countries[SIZE], int len) {
 
    cout<<"# Consulta específica de algún país\n";
    message = "Ingrese el nombre del país: ";
-   requestStr(message, name);
+   request(message, name);
    clear();
 
    if (checkIfTempInArray(countries, NAME, name, len)) {
@@ -165,7 +165,7 @@ void CountriesSameLenguage(Country countries[SIZE], int len) {
 
    cout<<"# Consulta de los países de algún tipo de idioma\n";
    message = "Ingrese el tipo de idioma: ";
-   requestStr(message, lenguage);
+   request(message, lenguage);
    clear();
 
    if (checkIfTempInArray(countries, LANGUAGE, lenguage, len)) {
@@ -181,7 +181,7 @@ void CountriesSameCurrency(Country countries[SIZE], int len) {
 
    cout<<"# Consulta de los países de algún tipo de moneda\n";
    message = "Ingrese el tipo de moneda: ";
-   requestStr(message, currency);
+   request(message, currency);
    clear();
 
    if (checkIfTempInArray(countries, CURRENCY, currency, len)) {

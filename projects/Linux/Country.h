@@ -21,6 +21,7 @@ class Country {
       void resetData();
 
       // Set methods
+      void setName(string);
       void setCapital(string);
       void setContinent(string);
       void setLanguage(string);

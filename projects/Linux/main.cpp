@@ -12,11 +12,12 @@ int main() {
    do {
       showMenu();
       message = "Digite el número de opción: ";
-      requestInt(message, digit);
+      request(message, digit);
       clear();
 
       // Check how many countries are there?
       lenCounstries = lenArray(countries);
+      sortCountriesByAlphabet(countries, lenCounstries);
 
       // Add Country
       if (digit==1) {
@@ -26,6 +27,10 @@ int main() {
             // One was added. Again, check how many countries are there?
             lenCounstries = lenArray(countries);
          } while (continueAction(lenCounstries, ADD));
+
+      // Clean Screen
+      } else if (digit==9) {
+         clear();
 
       } else if (lenCounstries!=0) {
          switch (digit) {
@@ -64,9 +69,6 @@ int main() {
             break;
          case 8:
             ShowAllCountriesSaved(countries, lenCounstries);
-            break;
-         case 9:
-            clear();
             break;
          case 10:
             // Get out of the loop
