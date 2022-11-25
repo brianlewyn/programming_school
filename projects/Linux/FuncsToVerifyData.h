@@ -249,7 +249,6 @@ void request(string message, string &answer) {
       }
    } while(flag);
 
-   // temp[0] = toupper(temp[0]);
    toFirstCapitalLetter(temp);
    answer = temp;
 }

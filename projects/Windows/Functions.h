@@ -22,9 +22,13 @@ void showSubMenu(string);
 bool continueAction();
 bool continueAction(int, bool);
 
+// Func to have a better order
+void changeSentece(Country, int);
+void revertChangeSentece(Country, int);
+void sortCountriesByAlphabet(Country, int);
+
 // Funcs for Array Objects
 int lenArray(Country);
-void sortCountriesByAlphabet(Country, int);
 void removeCountryInArray(Country, int);
 int getIndexOfCountryInArray(Country, string, int);
 
@@ -127,19 +131,68 @@ bool continueAction(int len, bool option) {
    return answer;
 }
 
-// Get the length of Array Objects
-int lenArray(Country countries[SZ]) {
-   int cont=0;
-   for (int i=0; i<SZ; i++) {
-      if (countries[i].getName() != "")
-         cont++;
+// Change sentences that have 
+// the first letter ñ or a stressed vowel
+void changeSentece(Country countries[SZ], int len) {
+   string temp;
+
+   for (int i=0; i<len; i++) {
+      temp = countries[i].getName();
+
+      if (temp[0] == ACCENT[0]) {
+         countries[i].setName("A" + temp);
+      }
+      if (temp[0] == ACCENT[1]) {
+         countries[i].setName("E" + temp);
+      }
+      if (temp[0] == ACCENT[2]) {
+         countries[i].setName("I" + temp);
+      }
+      if (temp[0] == ACCENT[3]) {
+         countries[i].setName("O" + temp);
+      }
+      if (temp[0] == ACCENT[4]) {
+         countries[i].setName("U" + temp);
+      }
+      if (temp[0] == ACCENT[5]) {
+         countries[i].setName("N" + temp);
+      }
    }
-   return cont;
+}
+
+// Revert change sentences that have
+// the second letter ñ or a stressed vowel
+void revertChangeSentece(Country countries[SZ], int len) {
+   string temp;
+   bool flag;
+
+   for (int i=0; i<len; i++) {
+      temp = countries[i].getName();
+      flag = true;
+
+      // Check if there is a sentence
+      // with a vowel or n in the first letter
+      flag = temp[0] == VOWEL[0];
+      for (int j=1; j<=5; j++) {
+         flag = flag || temp[0] == VOWEL[j];
+      }
+
+      // Delete it if there is a sentence
+      // with a stressed vowel or ñ in the second letter
+      for (int j=0; j<=5; j++) {
+         if (flag && temp[1] == ACCENT[j]) {
+            temp[0] = ' ';
+            trim(temp);
+            countries[i].setName(temp);
+         }
+      }
+   }
 }
 
 // Sort countries by alphabet in Array Objects
 void sortCountriesByAlphabet(Country countries[SZ], int len) {
    Country temp;
+   changeSentece(countries, len);
    for (int i=0; i<len; i++) {
       for (int j=0; j<len; j++) {
          if (countries[i].getName() < countries[j].getName()) {
@@ -149,6 +202,17 @@ void sortCountriesByAlphabet(Country countries[SZ], int len) {
          }
       }
    }
+   revertChangeSentece(countries, len);
+}
+
+// Get the length of Array Objects
+int lenArray(Country countries[SZ]) {
+   int cont=0;
+   for (int i=0; i<SZ; i++) {
+      if (countries[i].getName() != "")
+         cont++;
+   }
+   return cont;
 }
 
 // Remove a country from Array Objects

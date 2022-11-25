@@ -17,7 +17,6 @@ int main() {
 
       // Check how many countries are there?
       lenCounstries = lenArray(countries);
-      sortCountriesByAlphabet(countries, lenCounstries);
 
       // Add Country
       if (digit==1) {

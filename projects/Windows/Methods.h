@@ -32,7 +32,7 @@ void Country::getData(string _name) {
 
    this->name = _name;
    message = "Capital: ";
-   requestStr(message, this->capital);
+   request(message, this->capital);
 
    showContinents();
    message = "Continente: ";
@@ -40,13 +40,13 @@ void Country::getData(string _name) {
    this->continent = CONTINENTS[indexContinent];
 
    message = "Idioma: ";
-   requestStr(message, this->language);
+   request(message, this->language);
 
-   message = "Tipo de Moneda: ";
-   requestStr(message, this->currency);
+   message = "Moneda: ";
+   request(message, this->currency);
 
-   message = "Número de Población: ";
-   requestInt(message, this->population);
+   message = "Población: ";
+   request(message, this->population);
    cout<<endl;
 }
 
@@ -71,6 +71,9 @@ void Country::resetData() {
 }
 
 // Set methods
+void Country::setName(string _name) {
+   this->name = _name;
+}
 void Country::setCapital(string _capital) {
    this->capital = _capital;
 }
